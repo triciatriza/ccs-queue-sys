@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/arrow-down-sign-to-navigate (1).png</file>
+    <file>icons/background_image.jpg</file>
     <file>icons/cil-3d.png</file>
     <file>icons/cil-4k.png</file>
     <file>icons/cil-airplay.png</file>
@@ -167,5 +169,7 @@
     <file>icons/cil-zoom-in.png</file>
     <file>icons/cil-zoom-out.png</file>
     <file>icons/CS.png</file>
+    <file>icons/drop-down arrow.png</file>
+    <file>icons/PicsArt_04-13-11.17.06.png</file>
   </qresource>
 </RCC>

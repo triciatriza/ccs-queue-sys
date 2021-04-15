@@ -4,6 +4,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import *
 from CSQueuingSystem import Ui_ComputerStudiesQueuingSystem
+from PyQt5.uic import loadUi
 from ui_animation import *
 
 class MainWindow(QMainWindow):
@@ -16,7 +17,9 @@ class MainWindow(QMainWindow):
 
 
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = MainWindow()
-    sys.exit(app.exec_())
+app = QApplication(sys.argv)
+mainwindow = MainWindow()
+widget=QtWidgets.QStackedWidget()
+widget.addWidget(mainwindow)
+widget.show()
+app.exec_()
