@@ -137,6 +137,9 @@
 QPushButton:hover{
 	background-color: rgb(85, 170, 255);
 }
+QPushButton::pressed{
+	background-color: rgb(70, 141, 211);
+}
 
 </string>
           </property>
@@ -489,9 +492,6 @@ QPushButton{
 	background-color: rgb(0, 58, 108);
 	color: rgb(255, 255, 255);
 }
-QPushButton:pressed{
-	border-bottom-color: rgb(85, 170, 255);
-}
 
 </string>
          </property>
@@ -544,11 +544,17 @@ QPushButton:pressed{
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-browser.png);
-background-repeat:none;
-padding-left:45px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
+                <string notr="true">QPushButton{
+	background-image: url(:/icons/icons/cil-browser.png);
+	background-repeat:none;
+	padding-left:45px;
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+	background-color: rgb(0, 58, 108);
+}
+QPushButton::pressed{
+	background-color: rgb(70, 141, 211);
+}
 </string>
                </property>
                <property name="text">
@@ -571,11 +577,17 @@ font: 75 9pt &quot;Century Gothic&quot;;
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-3d.png);
-background-repeat:none;
-padding-left:51px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
+                <string notr="true">QPushButton{
+	background-image: url(:/icons/icons/cil-3d.png);
+	background-repeat:none;
+	padding-left:51px;	
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+	background-color: rgb(0, 58, 108);
+}
+QPushButton::pressed{
+	background-color: rgb(70, 141, 211);
+}
 </string>
                </property>
                <property name="text">
@@ -598,11 +610,17 @@ font: 75 9pt &quot;Century Gothic&quot;;
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-pencil.png);
-background-repeat:none;
-padding-left:52px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
+                <string notr="true">QPushButton{	
+	background-image: url(:/icons/icons/cil-pencil.png);
+	background-repeat:none;
+	padding-left:52px;
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+	background-color: rgb(0, 58, 108);
+}
+QPushButton::pressed{
+	background-color: rgb(70, 141, 211);
+}
 </string>
                </property>
                <property name="text">
@@ -625,11 +643,17 @@ font: 75 9pt &quot;Century Gothic&quot;;
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-pin.png);
-background-repeat:none;
-padding-left:36px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
+                <string notr="true">QPushButton{
+	background-image: url(:/icons/icons/cil-pin.png);
+	background-repeat:none;
+	padding-left:36px;
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+	background-color: rgb(0, 58, 108);
+}
+QPushButton::pressed{
+	background-color: rgb(70, 141, 211);
+}
 </string>
                </property>
                <property name="text">
@@ -674,11 +698,18 @@ font: 75 9pt &quot;Century Gothic&quot;;
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-user.png);
-background-repeat:none;
-padding-left:35px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
+                <string notr="true">QPushButton{
+	background-image: url(:/icons/icons/cil-user.png);
+	background-repeat:none;
+	padding-left:35px;
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+	background-color: rgb(0, 58, 108);
+}
+QPushButton::pressed{
+	background-color: rgb(70, 141, 211);
+}
+
 </string>
                </property>
                <property name="text">
@@ -701,11 +732,18 @@ font: 75 9pt &quot;Century Gothic&quot;;
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-settings.png);
-background-repeat: none;
-padding-left:35px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
+                <string notr="true">QPushButton{
+	background-image: url(:/icons/icons/cil-settings.png);
+	background-repeat: none;
+	padding-left:35px;
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+	background-color: rgb(0, 58, 108);
+}
+QPushButton::pressed{
+	background-color: rgb(70, 141, 211);
+}
+
 </string>
                </property>
                <property name="text">
