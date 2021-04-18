@@ -144,8 +144,8 @@ QPushButton:hover{
            <string/>
           </property>
           <property name="icon">
-           <iconset>
-            <normaloff>icons/cil-menu.png</normaloff>icons/cil-menu.png</iconset>
+           <iconset resource="resource.qrc">
+            <normaloff>:/icons/icons/cil-menu.png</normaloff>:/icons/icons/cil-menu.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -222,8 +222,14 @@ QPushButton:hover{
                  <height>40</height>
                 </size>
                </property>
+               <property name="styleSheet">
+                <string notr="true">image: url(:/icons/icons/CS.png);</string>
+               </property>
                <property name="text">
                 <string/>
+               </property>
+               <property name="textFormat">
+                <enum>Qt::PlainText</enum>
                </property>
                <property name="pixmap">
                 <pixmap>icons/CS.png</pixmap>
@@ -306,63 +312,120 @@ color: rgb(255, 255, 255);</string>
               <number>0</number>
              </property>
              <item>
-              <widget class="QPushButton" name="pushButton">
+              <widget class="QPushButton" name="minimize_btn">
                <property name="minimumSize">
                 <size>
-                 <width>24</width>
-                 <height>24</height>
+                 <width>30</width>
+                 <height>30</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>24</width>
-                 <height>24</height>
+                 <width>30</width>
+                 <height>30</height>
                 </size>
                </property>
+               <property name="toolTip">
+                <string>Minimize</string>
+               </property>
                <property name="styleSheet">
-                <string notr="true">border: none;
-background-image: url(:/icons/icons/cil-window-minimize.png);
-background-repeat:none;
+                <string notr="true">QPushButton{
+	border: none;
+	
+	image: url(:/icons/icons/cil-window-minimize.png);
+}
+QPushButton:hover{
+	background-color: rgb(85, 170, 255);
+}
 </string>
                </property>
                <property name="text">
                 <string/>
                </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButton_2">
-               <property name="maximumSize">
+               <property name="iconSize">
                 <size>
-                 <width>24</width>
-                 <height>24</height>
+                 <width>30</width>
+                 <height>30</height>
                 </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">border: none;
-border-image: url(:/icons/icons/cil-window-maximize.png);
-background-repeat:none;</string>
-               </property>
-               <property name="text">
-                <string/>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_3">
+              <widget class="QPushButton" name="maximize_btn">
                <property name="maximumSize">
                 <size>
-                 <width>24</width>
-                 <height>24</height>
+                 <width>30</width>
+                 <height>30</height>
                 </size>
                </property>
+               <property name="sizeIncrement">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Maximize</string>
+               </property>
+               <property name="toolTipDuration">
+                <number>0</number>
+               </property>
                <property name="styleSheet">
-                <string notr="true">border: none;
-background-image: url(:/icons/icons/cil-x.png);
-background-repeat:none;</string>
+                <string notr="true">QPushButton{
+	border: none;
+	
+	image: url(:/icons/icons/cil-window-maximize.png);
+}
+QPushButton:hover{
+	background-color: rgb(85, 170, 255);
+}</string>
                </property>
                <property name="text">
                 <string/>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="close_btn">
+               <property name="minimumSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Close</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	border: none;
+	
+	image: url(:/icons/icons/cil-x.png);
+}
+QPushButton:hover{
+	background-color: rgb(85, 170, 255);
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
                </property>
               </widget>
              </item>

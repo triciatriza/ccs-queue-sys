@@ -67,7 +67,7 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "")
         self.Btn_Toggle.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("icons/cil-menu.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icons/icons/cil-menu.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.Btn_Toggle.setIcon(icon)
         self.Btn_Toggle.setIconSize(QtCore.QSize(24, 24))
         self.Btn_Toggle.setObjectName("Btn_Toggle")
@@ -95,7 +95,9 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.horizontalLayout_10.addWidget(self.frame_16)
         self.label_9 = QtWidgets.QLabel(self.frame_15)
         self.label_9.setMaximumSize(QtCore.QSize(50, 40))
+        self.label_9.setStyleSheet("image: url(:/icons/icons/CS.png);")
         self.label_9.setText("")
+        self.label_9.setTextFormat(QtCore.Qt.PlainText)
         self.label_9.setPixmap(QtGui.QPixmap("icons/CS.png"))
         self.label_9.setScaledContents(True)
         self.label_9.setObjectName("label_9")
@@ -123,32 +125,53 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_9.setSpacing(0)
         self.horizontalLayout_9.setObjectName("horizontalLayout_9")
-        self.pushButton = QtWidgets.QPushButton(self.frame_14)
-        self.pushButton.setMinimumSize(QtCore.QSize(24, 24))
-        self.pushButton.setMaximumSize(QtCore.QSize(24, 24))
-        self.pushButton.setStyleSheet("border: none;\n"
-"background-image: url(:/icons/icons/cil-window-minimize.png);\n"
-"background-repeat:none;\n"
+        self.minimize_btn = QtWidgets.QPushButton(self.frame_14)
+        self.minimize_btn.setMinimumSize(QtCore.QSize(30, 30))
+        self.minimize_btn.setMaximumSize(QtCore.QSize(30, 30))
+        self.minimize_btn.setStyleSheet("QPushButton{\n"
+"    border: none;\n"
+"    \n"
+"    image: url(:/icons/icons/cil-window-minimize.png);\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}\n"
 "")
-        self.pushButton.setText("")
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_9.addWidget(self.pushButton)
-        self.pushButton_2 = QtWidgets.QPushButton(self.frame_14)
-        self.pushButton_2.setMaximumSize(QtCore.QSize(24, 24))
-        self.pushButton_2.setStyleSheet("border: none;\n"
-"border-image: url(:/icons/icons/cil-window-maximize.png);\n"
-"background-repeat:none;")
-        self.pushButton_2.setText("")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.horizontalLayout_9.addWidget(self.pushButton_2)
-        self.pushButton_3 = QtWidgets.QPushButton(self.frame_14)
-        self.pushButton_3.setMaximumSize(QtCore.QSize(24, 24))
-        self.pushButton_3.setStyleSheet("border: none;\n"
-"background-image: url(:/icons/icons/cil-x.png);\n"
-"background-repeat:none;")
-        self.pushButton_3.setText("")
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.horizontalLayout_9.addWidget(self.pushButton_3)
+        self.minimize_btn.setText("")
+        self.minimize_btn.setIconSize(QtCore.QSize(30, 30))
+        self.minimize_btn.setObjectName("minimize_btn")
+        self.horizontalLayout_9.addWidget(self.minimize_btn)
+        self.maximize_btn = QtWidgets.QPushButton(self.frame_14)
+        self.maximize_btn.setMaximumSize(QtCore.QSize(30, 30))
+        self.maximize_btn.setSizeIncrement(QtCore.QSize(30, 30))
+        self.maximize_btn.setToolTipDuration(0)
+        self.maximize_btn.setStyleSheet("QPushButton{\n"
+"    border: none;\n"
+"    \n"
+"    image: url(:/icons/icons/cil-window-maximize.png);\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.maximize_btn.setText("")
+        self.maximize_btn.setIconSize(QtCore.QSize(30, 30))
+        self.maximize_btn.setObjectName("maximize_btn")
+        self.horizontalLayout_9.addWidget(self.maximize_btn)
+        self.close_btn = QtWidgets.QPushButton(self.frame_14)
+        self.close_btn.setMinimumSize(QtCore.QSize(30, 30))
+        self.close_btn.setMaximumSize(QtCore.QSize(30, 30))
+        self.close_btn.setStyleSheet("QPushButton{\n"
+"    border: none;\n"
+"    \n"
+"    image: url(:/icons/icons/cil-x.png);\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.close_btn.setText("")
+        self.close_btn.setIconSize(QtCore.QSize(30, 30))
+        self.close_btn.setObjectName("close_btn")
+        self.horizontalLayout_9.addWidget(self.close_btn)
         self.horizontalLayout_4.addWidget(self.frame_14)
         self.horizontalLayout.addWidget(self.frame_top)
         self.verticalLayout.addWidget(self.top_bar)
@@ -559,6 +582,9 @@ class Ui_ComputerStudiesQueuingSystem(object):
         _translate = QtCore.QCoreApplication.translate
         ComputerStudiesQueuingSystem.setWindowTitle(_translate("ComputerStudiesQueuingSystem", "MainWindow"))
         self.label_5.setText(_translate("ComputerStudiesQueuingSystem", "Computer Studies Queuing System"))
+        self.minimize_btn.setToolTip(_translate("ComputerStudiesQueuingSystem", "Minimize"))
+        self.maximize_btn.setToolTip(_translate("ComputerStudiesQueuingSystem", "Maximize"))
+        self.close_btn.setToolTip(_translate("ComputerStudiesQueuingSystem", "Close"))
         self.queue_button.setText(_translate("ComputerStudiesQueuingSystem", "QUEUE"))
         self.roomreservation_button.setText(_translate("ComputerStudiesQueuingSystem", "ROOM RESERVATION"))
         self.appointment_button.setText(_translate("ComputerStudiesQueuingSystem", "APPOINTMENT SETTER"))
