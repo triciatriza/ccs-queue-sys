@@ -10,26 +10,30 @@ from CSQueuingSystem import *
 window_size = 0
 flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
 
+
 class Login(QDialog):
     def __init__(self):
         super(Login, self).__init__()
         loadUi("login_page.ui", self)
-        self.gotoregister_btn.clicked.connect(self.gotoRegister)
+        self.close_btn.clicked.connect(lambda: self.close())
 
-    def gotoRegister(self):
-        widget.addWidget(Register())
-        widget.setCurrentIndex(widget.currentIndex()+1)
+        # FramelessWindow
+        self.setWindowFlags(flags)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+        self.show()
 
 class Register(QDialog):
     def __init__(self):
         super(Register, self).__init__()
         loadUi("register_page.ui", self)
-        self.gotologin_btn.clicked.connect(self.gotoLogin)
+        self.close_btn.clicked.connect(lambda: self.close())
 
-    def gotoLogin(self):
-        widget.addWidget(Login())
-        widget.setCurrentIndex(widget.currentIndex() + 1)
+        # FramelessWindow
+        self.setWindowFlags(flags)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
+        self.show()
 
 #Main Menu
 class CSQueue(QMainWindow):
@@ -104,14 +108,10 @@ class CSQueue(QMainWindow):
         self.clickPosition = event.globalPos()
 
 
-
-app = QApplication(sys.argv)
-widget = QtWidgets.QStackedWidget()
-mainwindow = Login()
-widget.addWidget(mainwindow)
-widget.show()
-sys.exit(app.exec_())
-
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = CSQueue()
+    sys.exit(app.exec_())
 
 
 

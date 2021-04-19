@@ -63,9 +63,6 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:hover{\n"
 "    background-color: rgb(85, 170, 255);\n"
 "}\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(70, 141, 211);\n"
-"}\n"
 "\n"
 "")
         self.Btn_Toggle.setText("")
@@ -199,6 +196,9 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "    background-color: rgb(0, 58, 108);\n"
 "    color: rgb(255, 255, 255);\n"
 "}\n"
+"QPushButton:pressed{\n"
+"    border-bottom-color: rgb(85, 170, 255);\n"
+"}\n"
 "\n"
 "")
         self.frame_left_menu.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -221,68 +221,44 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.queue_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.queue_button.setMinimumSize(QtCore.QSize(200, 0))
         self.queue_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.queue_button.setStyleSheet("QPushButton{\n"
-"    background-image: url(:/icons/icons/cil-browser.png);\n"
-"    background-repeat:none;\n"
-"    padding-left:45px;\n"
-"    background-position: center left;\n"
-"    font: 75 9pt \"Century Gothic\";\n"
-"    background-color: rgb(0, 58, 108);\n"
-"}\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(70, 141, 211);\n"
-"}\n"
+        self.queue_button.setStyleSheet("background-image: url(:/icons/icons/cil-browser.png);\n"
+"background-repeat:none;\n"
+"padding-left:45px;\n"
+"background-position: center left;\n"
+"font: 75 9pt \"Century Gothic\";\n"
 "")
         self.queue_button.setObjectName("queue_button")
         self.verticalLayout_2.addWidget(self.queue_button)
         self.roomreservation_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.roomreservation_button.setMinimumSize(QtCore.QSize(200, 0))
         self.roomreservation_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.roomreservation_button.setStyleSheet("QPushButton{\n"
-"    background-image: url(:/icons/icons/cil-3d.png);\n"
-"    background-repeat:none;\n"
-"    padding-left:51px;    \n"
-"    background-position: center left;\n"
-"    font: 75 9pt \"Century Gothic\";\n"
-"    background-color: rgb(0, 58, 108);\n"
-"}\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(70, 141, 211);\n"
-"}\n"
+        self.roomreservation_button.setStyleSheet("background-image: url(:/icons/icons/cil-3d.png);\n"
+"background-repeat:none;\n"
+"padding-left:51px;\n"
+"background-position: center left;\n"
+"font: 75 9pt \"Century Gothic\";\n"
 "")
         self.roomreservation_button.setObjectName("roomreservation_button")
         self.verticalLayout_2.addWidget(self.roomreservation_button)
         self.appointment_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.appointment_button.setMinimumSize(QtCore.QSize(200, 0))
         self.appointment_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.appointment_button.setStyleSheet("QPushButton{    \n"
-"    background-image: url(:/icons/icons/cil-pencil.png);\n"
-"    background-repeat:none;\n"
-"    padding-left:52px;\n"
-"    background-position: center left;\n"
-"    font: 75 9pt \"Century Gothic\";\n"
-"    background-color: rgb(0, 58, 108);\n"
-"}\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(70, 141, 211);\n"
-"}\n"
+        self.appointment_button.setStyleSheet("background-image: url(:/icons/icons/cil-pencil.png);\n"
+"background-repeat:none;\n"
+"padding-left:52px;\n"
+"background-position: center left;\n"
+"font: 75 9pt \"Century Gothic\";\n"
 "")
         self.appointment_button.setObjectName("appointment_button")
         self.verticalLayout_2.addWidget(self.appointment_button)
         self.scholarquests_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.scholarquests_button.setMinimumSize(QtCore.QSize(200, 0))
         self.scholarquests_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.scholarquests_button.setStyleSheet("QPushButton{\n"
-"    background-image: url(:/icons/icons/cil-pin.png);\n"
-"    background-repeat:none;\n"
-"    padding-left:36px;\n"
-"    background-position: center left;\n"
-"    font: 75 9pt \"Century Gothic\";\n"
-"    background-color: rgb(0, 58, 108);\n"
-"}\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(70, 141, 211);\n"
-"}\n"
+        self.scholarquests_button.setStyleSheet("background-image: url(:/icons/icons/cil-pin.png);\n"
+"background-repeat:none;\n"
+"padding-left:36px;\n"
+"background-position: center left;\n"
+"font: 75 9pt \"Century Gothic\";\n"
 "")
         self.scholarquests_button.setObjectName("scholarquests_button")
         self.verticalLayout_2.addWidget(self.scholarquests_button)
@@ -296,36 +272,22 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.account_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.account_button.setMinimumSize(QtCore.QSize(200, 0))
         self.account_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.account_button.setStyleSheet("QPushButton{\n"
-"    background-image: url(:/icons/icons/cil-user.png);\n"
-"    background-repeat:none;\n"
-"    padding-left:35px;\n"
-"    background-position: center left;\n"
-"    font: 75 9pt \"Century Gothic\";\n"
-"    background-color: rgb(0, 58, 108);\n"
-"}\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(70, 141, 211);\n"
-"}\n"
-"\n"
+        self.account_button.setStyleSheet("background-image: url(:/icons/icons/cil-user.png);\n"
+"background-repeat:none;\n"
+"padding-left:35px;\n"
+"background-position: center left;\n"
+"font: 75 9pt \"Century Gothic\";\n"
 "")
         self.account_button.setObjectName("account_button")
         self.verticalLayout_2.addWidget(self.account_button)
         self.settings_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.settings_button.setMinimumSize(QtCore.QSize(200, 0))
         self.settings_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.settings_button.setStyleSheet("QPushButton{\n"
-"    background-image: url(:/icons/icons/cil-settings.png);\n"
-"    background-repeat: none;\n"
-"    padding-left:35px;\n"
-"    background-position: center left;\n"
-"    font: 75 9pt \"Century Gothic\";\n"
-"    background-color: rgb(0, 58, 108);\n"
-"}\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(70, 141, 211);\n"
-"}\n"
-"\n"
+        self.settings_button.setStyleSheet("background-image: url(:/icons/icons/cil-settings.png);\n"
+"background-repeat: none;\n"
+"padding-left:35px;\n"
+"background-position: center left;\n"
+"font: 75 9pt \"Century Gothic\";\n"
 "")
         self.settings_button.setObjectName("settings_button")
         self.verticalLayout_2.addWidget(self.settings_button)
