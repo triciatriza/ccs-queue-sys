@@ -12,33 +12,35 @@ flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowSt
 
 
 class Login(QDialog):
-    def __init__(self):
-        super(Login, self).__init__()
+    def __init__(self, parent=None):
+        super(Login, self).__init__(parent)
         loadUi("login_page.ui", self)
-        self.close_btn.clicked.connect(lambda: self.close())
-
-        # FramelessWindow
-        self.setWindowFlags(flags)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-
+        self.login_btn.clicked.connect(lambda: self.checkLogin())
+        self.gotoregister_btn.clicked.connect(lambda: self.gotoRegister())
         self.show()
+
+    def checkLogin(self):
+        if (self.username_field.text() == 'student' and self.password_field.text() == '1234'):
+            self.accept()
+        else:
+            QtWidgets.QMessageBox.warning(self, 'Error', 'Incorrect username or password')
+
+    def gotoRegister(self):
+        register = Register()
+        register.exec_()
+
 
 class Register(QDialog):
     def __init__(self):
         super(Register, self).__init__()
         loadUi("register_page.ui", self)
-        self.close_btn.clicked.connect(lambda: self.close())
-
-        # FramelessWindow
-        self.setWindowFlags(flags)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
         self.show()
 
 #Main Menu
 class CSQueue(QMainWindow):
-    def __init__(self):
-        QMainWindow.__init__(self)
+    def __init__(self, parent=None):
+        super(CSQueue, self).__init__(parent)
         self.ui = Ui_ComputerStudiesQueuingSystem()
         self.ui.setupUi(self)
 
@@ -109,9 +111,15 @@ class CSQueue(QMainWindow):
 
 
 if __name__ == "__main__":
+    import sys
     app = QApplication(sys.argv)
-    window = CSQueue()
-    sys.exit(app.exec_())
+    login = Login()
+
+    if login.exec_() == QtWidgets.QDialog.Accepted:
+        window = CSQueue()
+        window.show()
+        sys.exit(app.exec_())
+
 
 
 
