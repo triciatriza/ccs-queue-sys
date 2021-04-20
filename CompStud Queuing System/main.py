@@ -17,7 +17,6 @@ class Login(QDialog):
         loadUi("login_page.ui", self)
         self.login_btn.clicked.connect(lambda: self.checkLogin())
         self.gotoregister_btn.clicked.connect(lambda: self.gotoRegister())
-        self.show()
 
     def checkLogin(self):
         if (self.username_field.text() == 'student' and self.password_field.text() == '1234'):
@@ -26,16 +25,22 @@ class Login(QDialog):
             QtWidgets.QMessageBox.warning(self, 'Error', 'Incorrect username or password')
 
     def gotoRegister(self):
-        register = Register()
-        register.exec_()
+        login = Login(self)
+        regWindow = Register(self)
+        login.close()
+        regWindow.show()
+
 
 
 class Register(QDialog):
-    def __init__(self):
-        super(Register, self).__init__()
+    def __init__(self, parent=None):
+        super(Register, self).__init__(parent)
         loadUi("register_page.ui", self)
+        self.gotologin_btn.clicked.connect(lambda: self.gotoLogin())
 
-        self.show()
+    def gotoLogin(self):
+        self.close()
+
 
 #Main Menu
 class CSQueue(QMainWindow):
@@ -119,6 +124,7 @@ if __name__ == "__main__":
         window = CSQueue()
         window.show()
         sys.exit(app.exec_())
+
 
 
 
