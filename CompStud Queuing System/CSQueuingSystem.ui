@@ -722,7 +722,7 @@ font: 75 9pt &quot;Century Gothic&quot;;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>7</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="queue_page">
           <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1237,6 +1237,159 @@ QPushButton:pressed{
            </item>
           </layout>
          </widget>
+         <widget class="QWidget" name="checkqueue_page">
+          <layout class="QGridLayout" name="gridLayout_13">
+           <item row="0" column="1">
+            <widget class="QFrame" name="frame_33">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QFrame" name="frame_34">
+             <property name="minimumSize">
+              <size>
+               <width>8</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QTableWidget" name="queue_table">
+             <property name="contextMenuPolicy">
+              <enum>Qt::DefaultContextMenu</enum>
+             </property>
+             <property name="gridStyle">
+              <enum>Qt::SolidLine</enum>
+             </property>
+             <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="horizontalHeaderStretchLastSection">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="verticalHeaderStretchLastSection">
+              <bool>false</bool>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>Date and Time</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Room</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>State</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Reason</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QFrame" name="frame_32">
+             <property name="minimumSize">
+              <size>
+               <width>8</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QFrame" name="frame_35">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>64</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_21">
+              <item>
+               <widget class="QFrame" name="frame_36">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_64">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_11">
+                 <item row="0" column="0">
+                  <widget class="QPushButton" name="acceptQueue_btn">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Set</string>
+                   </property>
+                   <property name="autoDefault">
+                    <bool>false</bool>
+                   </property>
+                   <property name="default">
+                    <bool>false</bool>
+                   </property>
+                   <property name="flat">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
          <widget class="QWidget" name="roomreservation_page">
           <layout class="QGridLayout" name="gridLayout">
            <item row="0" column="1">
@@ -1266,7 +1419,7 @@ QPushButton:pressed{
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QTableWidget" name="tableWidget">
+            <widget class="QTableWidget" name="rsv_table">
              <property name="contextMenuPolicy">
               <enum>Qt::DefaultContextMenu</enum>
              </property>
@@ -1361,7 +1514,7 @@ QPushButton:pressed{
                 </property>
                 <layout class="QGridLayout" name="gridLayout_2">
                  <item row="0" column="0">
-                  <widget class="QPushButton" name="pushButton_4">
+                  <widget class="QPushButton" name="tp_setRsv_btn">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -1419,7 +1572,7 @@ QPushButton:pressed{
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QTableWidget" name="tableWidget_5">
+            <widget class="QTableWidget" name="pendingRsv_table">
              <property name="contextMenuPolicy">
               <enum>Qt::DefaultContextMenu</enum>
              </property>
@@ -1525,7 +1678,7 @@ QPushButton:pressed{
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_15">
+                     <widget class="QPushButton" name="acceptRsv_btn">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -1538,7 +1691,7 @@ QPushButton:pressed{
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_16">
+                     <widget class="QPushButton" name="declineRsv_btn">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -1572,7 +1725,7 @@ QPushButton:pressed{
                 </property>
                 <layout class="QGridLayout" name="gridLayout_12">
                  <item row="0" column="0">
-                  <widget class="QPushButton" name="pushButton_17">
+                  <widget class="QPushButton" name="backRsv_btn">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -1580,7 +1733,7 @@ QPushButton:pressed{
                     </sizepolicy>
                    </property>
                    <property name="text">
-                    <string>Set</string>
+                    <string>Back</string>
                    </property>
                    <property name="autoDefault">
                     <bool>false</bool>
@@ -1688,13 +1841,13 @@ QPushButton:pressed{
                      <number>16</number>
                     </property>
                     <item>
-                     <widget class="QDateTimeEdit" name="dateTimeEdit_4"/>
+                     <widget class="QDateTimeEdit" name="dtRsv"/>
                     </item>
                     <item>
-                     <widget class="QComboBox" name="comboBox_4"/>
+                     <widget class="QComboBox" name="roomRsv"/>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="lineEdit_4"/>
+                     <widget class="QLineEdit" name="reasonRsv"/>
                     </item>
                    </layout>
                   </item>
@@ -1703,14 +1856,14 @@ QPushButton:pressed{
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_18">
                   <item>
-                   <widget class="QCheckBox" name="checkBox_3">
+                   <widget class="QCheckBox" name="confirmRsv">
                     <property name="text">
                      <string>Confirm your choices</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QDialogButtonBox" name="buttonBox_3">
+                   <widget class="QDialogButtonBox" name="dialogRsv">
                     <property name="standardButtons">
                      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
                     </property>
@@ -1785,10 +1938,10 @@ QPushButton:pressed{
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_28">
               <item>
-               <widget class="QCalendarWidget" name="calendarWidget"/>
+               <widget class="QCalendarWidget" name="calendarApt"/>
               </item>
               <item>
-               <widget class="QListWidget" name="listWidget">
+               <widget class="QListWidget" name="listApt">
                 <item>
                  <property name="text">
                   <string>d</string>
@@ -1847,14 +2000,14 @@ QPushButton:pressed{
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_19">
                  <item>
-                  <widget class="QPushButton" name="pushButton_8">
+                  <widget class="QPushButton" name="to_chkApt_btn">
                    <property name="text">
                     <string>Check Pending</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButton_6">
+                  <widget class="QPushButton" name="tp_setApt_btn">
                    <property name="text">
                     <string>Set</string>
                    </property>
@@ -1897,7 +2050,7 @@ QPushButton:pressed{
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QTableWidget" name="tableWidget_2">
+            <widget class="QTableWidget" name="pendingApt_table">
              <property name="contextMenuPolicy">
               <enum>Qt::DefaultContextMenu</enum>
              </property>
@@ -1998,7 +2151,7 @@ QPushButton:pressed{
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_13">
+                     <widget class="QPushButton" name="acceptApt_btn">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -2011,7 +2164,7 @@ QPushButton:pressed{
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_14">
+                     <widget class="QPushButton" name="declineApt_btn">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -2045,7 +2198,7 @@ QPushButton:pressed{
                 </property>
                 <layout class="QGridLayout" name="gridLayout_6">
                  <item row="0" column="0">
-                  <widget class="QPushButton" name="pushButton_12">
+                  <widget class="QPushButton" name="backApt_btn">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -2053,7 +2206,7 @@ QPushButton:pressed{
                     </sizepolicy>
                    </property>
                    <property name="text">
-                    <string>Set</string>
+                    <string>Back</string>
                    </property>
                    <property name="autoDefault">
                     <bool>false</bool>
@@ -2103,7 +2256,7 @@ QPushButton:pressed{
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QTableWidget" name="tableWidget_3">
+            <widget class="QTableWidget" name="quest_table">
              <property name="contextMenuPolicy">
               <enum>Qt::DefaultContextMenu</enum>
              </property>
@@ -2203,7 +2356,7 @@ QPushButton:pressed{
                 </property>
                 <layout class="QGridLayout" name="gridLayout_8">
                  <item row="0" column="0">
-                  <widget class="QPushButton" name="pushButton_7">
+                  <widget class="QPushButton" name="tp_acceptQuest_btn">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -2261,7 +2414,7 @@ QPushButton:pressed{
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QTableWidget" name="tableWidget_4">
+            <widget class="QTableWidget" name="availableQuest_table">
              <property name="contextMenuPolicy">
               <enum>Qt::DefaultContextMenu</enum>
              </property>
@@ -2361,7 +2514,7 @@ QPushButton:pressed{
                 </property>
                 <layout class="QGridLayout" name="gridLayout_10">
                  <item row="0" column="0">
-                  <widget class="QPushButton" name="pushButton_9">
+                  <widget class="QPushButton" name="acceptQuest_btn">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                      <horstretch>0</horstretch>

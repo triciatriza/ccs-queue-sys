@@ -67,6 +67,11 @@ class CSQueue(QMainWindow):
         self.ui.account_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.account_page))
         self.ui.settings_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.settings_page))
 
+        # Content Buttons
+
+        # Appointment Page Buttons
+        
+
         # for moving/dragging window
         def moveWindow(e):
             if self.isMaximized() == False:
