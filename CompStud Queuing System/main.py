@@ -69,7 +69,35 @@ class CSQueue(QMainWindow):
 
         # Content Buttons
 
+        # Accept Queue Buttons
+        self.ui.acceptQueue_btn.clicked.connect(lambda: print("Accepted queue!"))
+
+        # Room Reservation Page Buttons
+        self.ui.tp_setRsv_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.setreservation_page))
+
+        # Check Reservation Page Buttons
+        self.ui.backRsv_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.roomreservation_page))
+        self.ui.acceptRsv_btn.clicked.connect(lambda: print("Accepted reservation!"))
+        self.ui.declineRsv_btn.clicked.connect(lambda: print("Declined reservation!"))
+
+        # Set Reservation Page Buttons
+        # self.ui.dialogRsv_btn.accepted.connect(lambda: print("Set reservation!"))
+
         # Appointment Page Buttons
+        self.ui.tp_chkApt_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.checkappointment_page))
+        self.ui.tp_setApt_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.appointment_page))
+
+        # Check Appointment Page Buttons
+        self.ui.backApt_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.appointment_page))
+        self.ui.acceptApt_btn.clicked.connect(lambda: print("Accepted appointment!"))
+        self.ui.declineApt_btn.clicked.connect(lambda: print("Declined appointment!"))
+
+        # Quests Page Buttons
+        self.ui.tp_acceptQuest_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.acceptquests_page))
+
+        # Accept Quests Page Buttons
+        self.ui.acceptQuest_btn.clicked.connect(lambda: print("Accepted quest!"))
+
         
 
         # for moving/dragging window
