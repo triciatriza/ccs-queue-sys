@@ -722,7 +722,7 @@ font: 75 9pt &quot;Century Gothic&quot;;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="queue_page">
           <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1369,7 +1369,7 @@ QPushButton:pressed{
                     </sizepolicy>
                    </property>
                    <property name="text">
-                    <string>Set</string>
+                    <string>Accept</string>
                    </property>
                    <property name="autoDefault">
                     <bool>false</bool>
@@ -2000,7 +2000,7 @@ QPushButton:pressed{
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_19">
                  <item>
-                  <widget class="QPushButton" name="to_chkApt_btn">
+                  <widget class="QPushButton" name="tp_chkApt_btn">
                    <property name="text">
                     <string>Check Pending</string>
                    </property>
