@@ -1756,8 +1756,8 @@ QPushButton:pressed{
          </widget>
          <widget class="QWidget" name="setreservation_page">
           <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="0">
-            <widget class="QFrame" name="frame_20">
+           <item row="2" column="0">
+            <widget class="QFrame" name="frame_21">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -1785,7 +1785,7 @@ QPushButton:pressed{
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>310</width>
+                  <width>300</width>
                   <height>0</height>
                  </size>
                 </property>
@@ -1899,7 +1899,7 @@ QPushButton:pressed{
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>310</width>
+                  <width>300</width>
                   <height>0</height>
                  </size>
                 </property>
@@ -1914,8 +1914,8 @@ QPushButton:pressed{
              </layout>
             </widget>
            </item>
-           <item row="2" column="0">
-            <widget class="QFrame" name="frame_21">
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_20">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>

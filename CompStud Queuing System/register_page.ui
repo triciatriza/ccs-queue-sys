@@ -164,7 +164,7 @@ color: rgb(0, 58, 108);</string>
        <string>Register</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="register_btn">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -198,7 +198,7 @@ QPushButton:pressed{
        <string>Register</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="firstname_field">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -232,7 +232,7 @@ QLineEdit:focus{
        <string>first name</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
+     <widget class="QLineEdit" name="confirmpass_field">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -269,7 +269,7 @@ QLineEdit:focus{
        <string>confirm password</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_3">
+     <widget class="QLineEdit" name="middlename_field">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -303,7 +303,7 @@ QLineEdit:focus{
        <string>middle name</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_4">
+     <widget class="QLineEdit" name="IDnumber_field">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -334,14 +334,14 @@ QLineEdit:focus{
 }</string>
       </property>
       <property name="placeholderText">
-       <string>School ID number</string>
+       <string>campus ID number</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_5">
+     <widget class="QLineEdit" name="email_field">
       <property name="geometry">
        <rect>
         <x>110</x>
-        <y>340</y>
+        <y>290</y>
         <width>300</width>
         <height>40</height>
        </rect>
@@ -368,10 +368,10 @@ QLineEdit:focus{
 }</string>
       </property>
       <property name="placeholderText">
-       <string>School email address</string>
+       <string>campus email address</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_6">
+     <widget class="QLineEdit" name="password_field">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -408,7 +408,7 @@ QLineEdit:focus{
        <string>password</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_7">
+     <widget class="QLineEdit" name="lastname_field">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -442,11 +442,73 @@ QLineEdit:focus{
        <string>last name</string>
       </property>
      </widget>
+     <widget class="QFrame" name="frame_3">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>550</y>
+        <width>197</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Already have an account?</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="gotologin_btn">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	border: none;
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 58, 108);
+}
+
+QPushButton:hover{
+	color: rgb(85, 170, 255);
+}</string>
+         </property>
+         <property name="text">
+          <string>Log in</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="close_btn_2">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>20</y>
+        <width>31</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: none;
+background-color: rgb(0, 58, 108);
+color: rgb(255, 255, 255);
+border-radius: 10px</string>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
      <widget class="QComboBox" name="course_comboBox">
       <property name="geometry">
        <rect>
         <x>110</x>
-        <y>290</y>
+        <y>340</y>
         <width>300</width>
         <height>40</height>
        </rect>
@@ -521,68 +583,6 @@ QComboBox::down-arrow:on {
         <string>Information Systems</string>
        </property>
       </item>
-     </widget>
-     <widget class="QFrame" name="frame_3">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>550</y>
-        <width>197</width>
-        <height>33</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Plain</enum>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Already have an account?</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="gotologin_btn">
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-	border: none;
-	background-color: rgb(255, 255, 255);
-	color: rgb(0, 58, 108);
-}
-
-QPushButton:hover{
-	color: rgb(85, 170, 255);
-}</string>
-         </property>
-         <property name="text">
-          <string>Log in</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QPushButton" name="close_btn_2">
-      <property name="geometry">
-       <rect>
-        <x>450</x>
-        <y>20</y>
-        <width>31</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: none;
-background-color: rgb(0, 58, 108);
-color: rgb(255, 255, 255);
-border-radius: 10px</string>
-      </property>
-      <property name="text">
-       <string>X</string>
-      </property>
      </widget>
     </widget>
    </item>
