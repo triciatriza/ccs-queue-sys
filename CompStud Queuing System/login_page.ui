@@ -100,7 +100,7 @@ QPushButton:pressed{
      <string>Login</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="username_field">
+   <widget class="QLineEdit" name="IDnumber_field">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -131,7 +131,7 @@ QLineEdit:focus{
 }</string>
     </property>
     <property name="placeholderText">
-     <string>username/email</string>
+     <string>campus ID number</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="password_field">

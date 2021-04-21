@@ -2,15 +2,18 @@ import sys
 import platform
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QPoint, QPropertyAnimation
-from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QGraphicsDropShadowEffect
 from PyQt5.uic import loadUi
 from CSQueuingSystem import *
 
 window_size = 0
 flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
+access = False
+user = ""
+userType = ""
 
-
+#Login Window
 class Login(QDialog):
     def __init__(self, parent=None):
         super(Login, self).__init__(parent)
@@ -18,28 +21,94 @@ class Login(QDialog):
         self.login_btn.clicked.connect(lambda: self.checkLogin())
         self.gotoregister_btn.clicked.connect(lambda: self.gotoRegister())
 
+    #User verification
     def checkLogin(self):
-        if (self.username_field.text() == 'student' and self.password_field.text() == '1234'):
-            self.accept()
-        else:
+        global access
+        global user
+        global userType
+        access = False
+        idnum = self.IDnumber_field.text()
+        password = self.password_field.text()
+        file = open("accounts.txt", "r")
+        for i in file:
+            a, b, c, d, e, f, g, h = i.split(",")
+            h = h.strip()
+            if(idnum == d and password == g):
+                access = True
+                userType = h
+                QtWidgets.QMessageBox.information(self, 'Success', 'Logged in successfully.')
+                self.accept()
+                break
+        file.close()
+        if access is False:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Incorrect username or password')
 
+    #Show Register Window
     def gotoRegister(self):
         login = Login(self)
         regWindow = Register(self)
         login.close()
         regWindow.show()
 
-
-
+#Register Window
 class Register(QDialog):
     def __init__(self, parent=None):
         super(Register, self).__init__(parent)
         loadUi("register_page.ui", self)
         self.gotologin_btn.clicked.connect(lambda: self.gotoLogin())
+        self.register_btn.clicked.connect(lambda: self.registerAcc())
 
+    #returns to Login Widow
     def gotoLogin(self):
         self.close()
+
+    #Check if user exists
+    def checkUser(self):
+        userExists = False
+        firstname = self.firstname_field.text()
+        middlename = self.middlename_field.text()
+        lastname = self.lastname_field.text()
+        idnum = self.IDnumber_field.text()
+        email = self.email_field.text()
+        course_type = self.course_comboBox.currentText()
+        password = self.password_field.text()
+        confirmpass = self.confirmpass_field.text()
+
+        file = open("accounts.txt", "r")
+
+        for i in file:
+            a, b, c, d, e, f, g, h= i.split(",")
+            h = h.strip()
+            if idnum == d:
+                file.close
+                QtWidgets.QMessageBox.warning(self, 'Error', 'Account already exists!')
+                exists = True
+                break
+
+        return userExists
+
+    #Register a new account
+    def registerAcc(self):
+        global access
+        firstname = self.firstname_field.text()
+        middlename = self.middlename_field.text()
+        lastname = self.lastname_field.text()
+        idnum = self.IDnumber_field.text()
+        email = self.email_field.text()
+        course_type = self.course_comboBox.currentText()
+        password = self.password_field.text()
+        confirmpass = self.confirmpass_field.text()
+
+        if (self.checkUser() == False):
+            if (password == confirmpass):
+                file =open("accounts.txt", "a")
+                file.write("\n"+ firstname + "," + middlename + "," + lastname + "," + idnum + "," + email + "," + course_type + "," + password + "," + "student")
+                file.close
+                access = True
+                QtWidgets.QMessageBox.information(self, 'Success', 'Registered successfully.')
+                self.close()
+            else:
+                QtWidgets.QMessageBox.warning(self, 'Error', "Password doesn't match")
 
 
 #Main Menu
@@ -97,8 +166,6 @@ class CSQueue(QMainWindow):
 
         # Accept Quests Page Buttons
         self.ui.acceptQuest_btn.clicked.connect(lambda: print("Accepted quest!"))
-
-        
 
         # for moving/dragging window
         def moveWindow(e):
