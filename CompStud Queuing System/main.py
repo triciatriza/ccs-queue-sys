@@ -3,13 +3,24 @@ import platform
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QPoint, QPropertyAnimation
 from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame
+from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QMessageBox
 from PyQt5.uic import loadUi
 from CSQueuingSystem import *
 
 window_size = 0
 flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
 
+queue = []
+reservations = [{"Date and Time": "01/10/1222 ", "Room": "FH 101", "State": "PENDING", "Reason": "date date"}]
+appointments = [{}]
+quests = [{"Title": "", "Date and Time": "", "Duration": "", "Points": "", "Description": ""}]
+
+def showError(title, text):
+    msg = QMessageBox()
+    msg.setWindowTitle(title)
+    msg.setText(text)
+    msg.setIcon(QMessageBox.Critical)
+    msg.exec_()
 
 class Login(QDialog):
     def __init__(self, parent=None):
@@ -42,26 +53,26 @@ class Register(QDialog):
         self.close()
 
 
-#Main Menu
+# Main Menu
 class CSQueue(QMainWindow):
     def __init__(self, parent=None):
         super(CSQueue, self).__init__(parent)
         self.ui = Ui_ComputerStudiesQueuingSystem()
         self.ui.setupUi(self)
 
-        #FramelessWindow
+        # FramelessWindow
         self.setWindowFlags(flags)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
-        #Window buttons functionalities
+        # Window buttons functionalities
         self.ui.minimize_btn.clicked.connect(lambda: self.showMinimized())
         self.ui.maximize_btn.clicked.connect(lambda: self.restore_or_maximize_window())
         self.ui.close_btn.clicked.connect(lambda: self.close())
 
-        #Toggle Button and Navigation Bar Buttons
+        # Toggle Button and Navigation Bar Buttons
         self.ui.Btn_Toggle.clicked.connect(lambda: self.slide_leftmenu())
         self.ui.queue_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.queue_page))
-        self.ui.roomreservation_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.roomreservation_page))
+        self.ui.roomreservation_button.clicked.connect(lambda: self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table, reservations))
         self.ui.appointment_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.appointment_page))
         self.ui.scholarquests_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.scholarquests_page))
         self.ui.account_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.account_page))
@@ -81,7 +92,8 @@ class CSQueue(QMainWindow):
         self.ui.declineRsv_btn.clicked.connect(lambda: print("Declined reservation!"))
 
         # Set Reservation Page Buttons
-        # self.ui.dialogRsv_btn.accepted.connect(lambda: print("Set reservation!"))
+        self.ui.setRsv_btn.clicked.connect(lambda: self.setReservations(self.ui.rsv_table, reservations))
+        self.ui.cancelRsv_btn.clicked.connect(lambda: self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table, reservations))
 
         # Appointment Page Buttons
         self.ui.tp_chkApt_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.checkappointment_page))
@@ -111,6 +123,31 @@ class CSQueue(QMainWindow):
         self.ui.top_bar.mouseMoveEvent = moveWindow
 
         self.show()
+
+    def loadReservations(self, page, table, data):
+        self.ui.stackedWidget.setCurrentWidget(page)
+        row = 0
+        keys = len(data[0].keys())
+        table.setRowCount(len(data))
+        for x in reservations:
+            table.setItem(row, 0, QtWidgets.QTableWidgetItem(x["Date and Time"]))
+            table.setItem(row, 1, QtWidgets.QTableWidgetItem(x["Room"]))
+            table.setItem(row, 2, QtWidgets.QTableWidgetItem(x["State"]))
+            table.setItem(row, 3, QtWidgets.QTableWidgetItem(x["Reason"]))
+            row = row + 1
+    
+    def setReservations(self, table, data):
+        dateTime = self.ui.dtRsv.text()
+        index = self.ui.roomRsv.currentIndex()
+        room = self.ui.roomRsv.itemText(index)
+        reason = self.ui.reasonRsv.text()
+
+        if self.ui.confirmRsv.isChecked():
+            data.append({"Date and Time": dateTime, "Room": room, "State": "PENDING", "Reason": reason})
+            self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table, reservations)
+        else:
+            QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
+
 
     #animation for toggle menu
     def slide_leftmenu(self):

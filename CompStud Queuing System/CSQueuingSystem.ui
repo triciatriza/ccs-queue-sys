@@ -722,7 +722,7 @@ font: 75 9pt &quot;Century Gothic&quot;;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>5</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="queue_page">
           <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1844,7 +1844,16 @@ QPushButton:pressed{
                      <widget class="QDateTimeEdit" name="dtRsv"/>
                     </item>
                     <item>
-                     <widget class="QComboBox" name="roomRsv"/>
+                     <widget class="QComboBox" name="roomRsv">
+                      <property name="currentText">
+                       <string>FH 101</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>FH 101</string>
+                       </property>
+                      </item>
+                     </widget>
                     </item>
                     <item>
                      <widget class="QLineEdit" name="reasonRsv"/>
@@ -1863,9 +1872,16 @@ QPushButton:pressed{
                    </widget>
                   </item>
                   <item>
-                   <widget class="QDialogButtonBox" name="dialogRsv">
-                    <property name="standardButtons">
-                     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+                   <widget class="QPushButton" name="setRsv_btn">
+                    <property name="text">
+                     <string>Set</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="cancelRsv_btn">
+                    <property name="text">
+                     <string>Cancel</string>
                     </property>
                    </widget>
                   </item>
