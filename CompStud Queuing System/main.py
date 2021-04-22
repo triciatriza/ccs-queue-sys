@@ -4,7 +4,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QPoint, QPropertyAnimation
 from PyQt5.QtGui import *
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QMessageBox, QGraphicsDropShadowEffect
+=======
+from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QLabel
+>>>>>>> Stashed changes
 =======
 from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QLabel
 >>>>>>> Stashed changes
@@ -18,6 +22,7 @@ user = ""
 userType = ""
 queue = [1]
 number = 0
+<<<<<<< Updated upstream
 
 queue = []
 reservations = [{"Date and Time": "01/10/1222 ", "Room": "FH 101", "State": "PENDING", "Reason": "date date"}]
@@ -30,6 +35,8 @@ def showError(title, text):
     msg.setText(text)
     msg.setIcon(QMessageBox.Critical)
     msg.exec_()
+=======
+>>>>>>> Stashed changes
 
 class Login(QDialog):
     def __init__(self, parent=None):
@@ -201,6 +208,7 @@ class CSQueue(QMainWindow):
         self.show()
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     def loadReservations(self, page, table, data):
         self.ui.stackedWidget.setCurrentWidget(page)
         row = 0
@@ -226,6 +234,8 @@ class CSQueue(QMainWindow):
             QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
 
 =======
+=======
+>>>>>>> Stashed changes
     def displayNum(self):
         global number
         number = number + 1
@@ -233,6 +243,9 @@ class CSQueue(QMainWindow):
         QtWidgets.QMessageBox.information(self, 'Success', 'Your priority number is 1')
         self.ui.currentnum_display.setText(str(queue[0]))
         queue.pop()
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
     #animation for toggle menu
