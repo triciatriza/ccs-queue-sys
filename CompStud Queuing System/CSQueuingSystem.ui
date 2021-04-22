@@ -858,18 +858,76 @@ border-radius: 20px</string>
                  <property name="text">
                   <string>0</string>
                  </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
                 </widget>
                 <widget class="QLabel" name="label_4">
                  <property name="geometry">
                   <rect>
-                   <x>100</x>
+                   <x>80</x>
                    <y>220</y>
-                   <width>91</width>
+                   <width>131</width>
                    <height>16</height>
                   </rect>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">font: 75 14pt &quot;MS Shell Dlg 2&quot;;</string>
+                 </property>
                  <property name="text">
-                  <string>CURRENT NUMBER</string>
+                  <string>NOW SERVING</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_6">
+                 <property name="geometry">
+                  <rect>
+                   <x>100</x>
+                   <y>320</y>
+                   <width>47</width>
+                   <height>13</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_7">
+                 <property name="geometry">
+                  <rect>
+                   <x>230</x>
+                   <y>310</y>
+                   <width>47</width>
+                   <height>13</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_8">
+                 <property name="geometry">
+                  <rect>
+                   <x>350</x>
+                   <y>320</y>
+                   <width>47</width>
+                   <height>13</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_10">
+                 <property name="geometry">
+                  <rect>
+                   <x>220</x>
+                   <y>390</y>
+                   <width>47</width>
+                   <height>13</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
                  </property>
                 </widget>
                </widget>

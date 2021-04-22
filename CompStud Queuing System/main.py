@@ -3,41 +3,42 @@ import platform
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QPoint, QPropertyAnimation
 from PyQt5.QtGui import *
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QMessageBox, QGraphicsDropShadowEffect
-=======
-from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QLabel
->>>>>>> Stashed changes
-=======
-from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QLabel
->>>>>>> Stashed changes
+from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QMessageBox
 from PyQt5.uic import loadUi
 from CSQueuingSystem import *
 
+# GLOBAL VARIABLES FOR FRAMELESS WINDOW
 window_size = 0
 flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
+
+# GLOBAL VARIABLES FOR LOGIN_PAGE AND REGISTER_PAGE
 access = False
 user = ""
 userType = ""
-queue = [1]
-number = 0
-<<<<<<< Updated upstream
 
+# GLOBAL VARIABLES FOR QUEUE_PAGE
 queue = []
+number = 0
+
+# GLOBAL VARIABLES FOR ROOMRESERVATION_PAGE
 reservations = [{"Date and Time": "01/10/1222 ", "Room": "FH 101", "State": "PENDING", "Reason": "date date"}]
+
+# GLOBAL VARIABLES FOR APPOINTMENT_PAGE
 appointments = [{}]
+
+# GLOBAL VARIABLES FOR SCHOLARQUESTS_PAGE
 quests = [{"Title": "", "Date and Time": "", "Duration": "", "Points": "", "Description": ""}]
 
+
+# MESSAGEBOX FUNCTION FOR SHOWING ERROR
 def showError(title, text):
     msg = QMessageBox()
     msg.setWindowTitle(title)
     msg.setText(text)
     msg.setIcon(QMessageBox.Critical)
     msg.exec_()
-=======
->>>>>>> Stashed changes
 
+# LOGIN_PAGE CLASS
 class Login(QDialog):
     def __init__(self, parent=None):
         super(Login, self).__init__(parent)
@@ -45,7 +46,7 @@ class Login(QDialog):
         self.login_btn.clicked.connect(lambda: self.checkLogin())
         self.gotoregister_btn.clicked.connect(lambda: self.gotoRegister())
 
-    #User verification
+    # FUNCTION FOR USER VERIFICATION
     def checkLogin(self):
         global access
         global user
@@ -67,14 +68,14 @@ class Login(QDialog):
         if access is False:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Incorrect username or password')
 
-    #Show Register Window
+    # SHOW REGISTER_PAGE
     def gotoRegister(self):
         login = Login(self)
         regWindow = Register(self)
         login.close()
         regWindow.show()
 
-#Register Window
+# REGISTER_PAGE CLASS
 class Register(QDialog):
     def __init__(self, parent=None):
         super(Register, self).__init__(parent)
@@ -82,11 +83,11 @@ class Register(QDialog):
         self.gotologin_btn.clicked.connect(lambda: self.gotoLogin())
         self.register_btn.clicked.connect(lambda: self.registerAcc())
 
-    #returns to Login Widow
+    # FUNCTION TO DISPLAY LOGIN_PAGE
     def gotoLogin(self):
         self.close()
 
-    #Check if user exists
+    # FUNCTION TO CHECK IF AN ACCOUNT EXISTS
     def checkUser(self):
         userExists = False
         firstname = self.firstname_field.text()
@@ -111,7 +112,7 @@ class Register(QDialog):
 
         return userExists
 
-    #Register a new account
+    # FUNCTION TO REGISTER A NEW ACCOUNT
     def registerAcc(self):
         global access
         firstname = self.firstname_field.text()
@@ -135,23 +136,23 @@ class Register(QDialog):
                 QtWidgets.QMessageBox.warning(self, 'Error', "Password doesn't match")
 
 
-# Main Menu
+# CSQUEUEINGSYSTEM CLASS (MAIN WINDOW)
 class CSQueue(QMainWindow):
     def __init__(self, parent=None):
         super(CSQueue, self).__init__(parent)
         self.ui = Ui_ComputerStudiesQueuingSystem()
         self.ui.setupUi(self)
 
-        # FramelessWindow
+        # FRAMELESS WINNDOW
         self.setWindowFlags(flags)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
-        # Window buttons functionalities
+        # FUNCTIONALITIES FOR WINDOW BUTTONS (MINIMIZE/MAZIMIZE, RESTORE, CLOSE)
         self.ui.minimize_btn.clicked.connect(lambda: self.showMinimized())
         self.ui.maximize_btn.clicked.connect(lambda: self.restore_or_maximize_window())
         self.ui.close_btn.clicked.connect(lambda: self.close())
 
-        # Toggle Button and Navigation Bar Buttons
+        # fUNCTION FOR TOGGLE MENU BUTTONS
         self.ui.Btn_Toggle.clicked.connect(lambda: self.slide_leftmenu())
         self.ui.queue_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.queue_page))
         self.ui.roomreservation_button.clicked.connect(lambda: self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table, reservations))
@@ -160,12 +161,12 @@ class CSQueue(QMainWindow):
         self.ui.account_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.account_page))
         self.ui.settings_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.settings_page))
 
-        # Content Buttons
+########################################## CONTENT BUTTONS #########################################################
 
-        #Queue
+        # QUEUE_PAGE BUTTON FUNCTIONALITY
         self.ui.enrollmentqueue_btn.clicked.connect(lambda: self.displayNum())
 
-        # Accept Queue Buttons
+        # Accept Queue Button
         self.ui.acceptQueue_btn.clicked.connect(lambda: print("Accepted queue!"))
 
         # Room Reservation Page Buttons
@@ -195,20 +196,18 @@ class CSQueue(QMainWindow):
         # Accept Quests Page Buttons
         self.ui.acceptQuest_btn.clicked.connect(lambda: print("Accepted quest!"))
 
-        # for moving/dragging window
+        # FUNCTION FOR MOVABLE WINDOW
         def moveWindow(e):
             if self.isMaximized() == False:
                 if e.buttons() == Qt.LeftButton:
                     self.move(self.pos() + e.globalPos() - self.clickPosition)
                     self.clickPosition = e.globalPos()
                     e.accept()
-
+        #CALL moveWindow FUNCTION
         self.ui.top_bar.mouseMoveEvent = moveWindow
 
         self.show()
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     def loadReservations(self, page, table, data):
         self.ui.stackedWidget.setCurrentWidget(page)
         row = 0
@@ -233,9 +232,7 @@ class CSQueue(QMainWindow):
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
 
-=======
-=======
->>>>>>> Stashed changes
+    # FUNCTION FOR QUEUE_PAGE
     def displayNum(self):
         global number
         number = number + 1
@@ -243,12 +240,10 @@ class CSQueue(QMainWindow):
         QtWidgets.QMessageBox.information(self, 'Success', 'Your priority number is 1')
         self.ui.currentnum_display.setText(str(queue[0]))
         queue.pop()
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
-    #animation for toggle menu
+######################################## MAIN MENU UI FUNCTIONALITIES ##################################################
+
+    # ANIMATION FOR TOGGLE MENU
     def slide_leftmenu(self):
         width = self.ui.frame_left_menu.width()
 
@@ -264,26 +259,27 @@ class CSQueue(QMainWindow):
         self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
         self.animation.start()
 
-    #Restore or maximize main menu function
+    # FUNCTION FOR RESTORING/MAXIMIZING WINDOW
     def restore_or_maximize_window(self):
         global window_size
         window_status = window_size
 
-        if window_status == 0: #if window is in maximized mode
+        if window_status == 0: # IF WINDOW IS MAXIMIZED
             window_size = 1
             self.showMaximized()
             self.ui.maximize_btn.setIcon(QtGui.QIcon(u":/icons/icons/cil-window-restore.png"))
             self.ui.maximize_btn.setToolTip("Restore")
-        else: #if window is in restored mode
+        else: # IF WINDOW IS RESTORED
             window_size = 0
             self.showNormal()
             self.ui.maximize_btn.setIcon(QtGui.QIcon(u":icons/icons/cil-window-maximize.png"))
 
-    # function connected to moveWindow() for moving/dragging window
+    # FUNCTION CONNECTED TO moveWindow
     def mousePressEvent(self, event):
         self.clickPosition = event.globalPos()
 
 
+# APPLICATION EXECUTION
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
@@ -293,8 +289,3 @@ if __name__ == "__main__":
         window = CSQueue()
         window.show()
         sys.exit(app.exec_())
-
-
-
-
-
