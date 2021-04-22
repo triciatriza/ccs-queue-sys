@@ -203,7 +203,7 @@ class CSQueue(QMainWindow):
                     self.move(self.pos() + e.globalPos() - self.clickPosition)
                     self.clickPosition = e.globalPos()
                     e.accept()
-        #CALL moveWindow FUNCTION
+        # CALL moveWindow FUNCTION
         self.ui.top_bar.mouseMoveEvent = moveWindow
 
         self.show()
