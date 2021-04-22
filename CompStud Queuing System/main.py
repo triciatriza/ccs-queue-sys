@@ -3,7 +3,11 @@ import platform
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QPoint, QPropertyAnimation
 from PyQt5.QtGui import *
+<<<<<<< Updated upstream
 from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QMessageBox, QGraphicsDropShadowEffect
+=======
+from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QLabel
+>>>>>>> Stashed changes
 from PyQt5.uic import loadUi
 from CSQueuingSystem import *
 
@@ -12,6 +16,8 @@ flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowSt
 access = False
 user = ""
 userType = ""
+queue = [1]
+number = 0
 
 queue = []
 reservations = [{"Date and Time": "01/10/1222 ", "Room": "FH 101", "State": "PENDING", "Reason": "date date"}]
@@ -149,6 +155,9 @@ class CSQueue(QMainWindow):
 
         # Content Buttons
 
+        #Queue
+        self.ui.enrollmentqueue_btn.clicked.connect(lambda: self.displayNum())
+
         # Accept Queue Buttons
         self.ui.acceptQueue_btn.clicked.connect(lambda: print("Accepted queue!"))
 
@@ -191,6 +200,7 @@ class CSQueue(QMainWindow):
 
         self.show()
 
+<<<<<<< Updated upstream
     def loadReservations(self, page, table, data):
         self.ui.stackedWidget.setCurrentWidget(page)
         row = 0
@@ -215,6 +225,15 @@ class CSQueue(QMainWindow):
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
 
+=======
+    def displayNum(self):
+        global number
+        number = number + 1
+        queue.append(number)
+        QtWidgets.QMessageBox.information(self, 'Success', 'Your priority number is 1')
+        self.ui.currentnum_display.setText(str(queue[0]))
+        queue.pop()
+>>>>>>> Stashed changes
 
     #animation for toggle menu
     def slide_leftmenu(self):

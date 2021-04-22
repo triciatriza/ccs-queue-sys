@@ -841,6 +841,37 @@ font: 48pt &quot;Segoe UI&quot;;</string>
                 <property name="frameShadow">
                  <enum>QFrame::Plain</enum>
                 </property>
+                <widget class="QLabel" name="currentnum_display">
+                 <property name="geometry">
+                  <rect>
+                   <x>40</x>
+                   <y>30</y>
+                   <width>201</width>
+                   <height>181</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(255, 255, 255);
+font: 72pt &quot;Segoe UI&quot;;
+border-radius: 20px</string>
+                 </property>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_4">
+                 <property name="geometry">
+                  <rect>
+                   <x>100</x>
+                   <y>220</y>
+                   <width>91</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>CURRENT NUMBER</string>
+                 </property>
+                </widget>
                </widget>
               </item>
              </layout>
@@ -977,7 +1008,7 @@ color: rgb(0, 58, 108);</string>
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="enrollment_btn">
+                     <widget class="QPushButton" name="enrollmentqueue_btn">
                       <property name="minimumSize">
                        <size>
                         <width>125</width>
@@ -1012,7 +1043,7 @@ QPushButton:pressed{
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="clearance_btn">
+                     <widget class="QPushButton" name="clearancequeue_btn">
                       <property name="minimumSize">
                        <size>
                         <width>125</width>
@@ -1064,7 +1095,7 @@ QPushButton:pressed{
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="academics_btn">
+                     <widget class="QPushButton" name="academicsqueue_btn">
                       <property name="minimumSize">
                        <size>
                         <width>125</width>
@@ -1101,7 +1132,7 @@ QPushButton:pressed{
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="organization_btn">
+                     <widget class="QPushButton" name="organizationqueue_btn">
                       <property name="minimumSize">
                        <size>
                         <width>125</width>
@@ -1153,7 +1184,7 @@ QPushButton:pressed{
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QPushButton" name="regular_btn">
+                     <widget class="QPushButton" name="regularlane_btn">
                       <property name="minimumSize">
                        <size>
                         <width>125</width>
@@ -1190,7 +1221,7 @@ QPushButton:pressed{
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="faculty_btn">
+                     <widget class="QPushButton" name="facultylane_btn">
                       <property name="minimumSize">
                        <size>
                         <width>125</width>
@@ -1222,7 +1253,7 @@ QPushButton:pressed{
 }</string>
                       </property>
                       <property name="text">
-                       <string>Faculty</string>
+                       <string>Faculty Lane</string>
                       </property>
                      </widget>
                     </item>

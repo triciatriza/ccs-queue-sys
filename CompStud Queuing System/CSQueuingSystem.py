@@ -348,6 +348,15 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.frame_13.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_13.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_13.setObjectName("frame_13")
+        self.currentnum_display = QtWidgets.QLabel(self.frame_13)
+        self.currentnum_display.setGeometry(QtCore.QRect(40, 30, 201, 181))
+        self.currentnum_display.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"font: 72pt \"Segoe UI\";\n"
+"border-radius: 20px")
+        self.currentnum_display.setObjectName("currentnum_display")
+        self.label_4 = QtWidgets.QLabel(self.frame_13)
+        self.label_4.setGeometry(QtCore.QRect(100, 220, 91, 16))
+        self.label_4.setObjectName("label_4")
         self.verticalLayout_8.addWidget(self.frame_13)
         self.horizontalLayout_3.addWidget(self.frame_2)
         self.frame = QtWidgets.QFrame(self.queue_page)
@@ -396,10 +405,10 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_3)
         self.horizontalLayout_5.setContentsMargins(-1, 0, -1, -1)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.enrollment_btn = QtWidgets.QPushButton(self.frame_3)
-        self.enrollment_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.enrollment_btn.setMaximumSize(QtCore.QSize(325, 325))
-        self.enrollment_btn.setStyleSheet("QPushButton{\n"
+        self.enrollmentqueue_btn = QtWidgets.QPushButton(self.frame_3)
+        self.enrollmentqueue_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.enrollmentqueue_btn.setMaximumSize(QtCore.QSize(325, 325))
+        self.enrollmentqueue_btn.setStyleSheet("QPushButton{\n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
 "    padding-top: 5px;\n"
@@ -413,12 +422,12 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.enrollment_btn.setObjectName("enrollment_btn")
-        self.horizontalLayout_5.addWidget(self.enrollment_btn)
-        self.clearance_btn = QtWidgets.QPushButton(self.frame_3)
-        self.clearance_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.clearance_btn.setMaximumSize(QtCore.QSize(325, 325))
-        self.clearance_btn.setStyleSheet("QPushButton{\n"
+        self.enrollmentqueue_btn.setObjectName("enrollmentqueue_btn")
+        self.horizontalLayout_5.addWidget(self.enrollmentqueue_btn)
+        self.clearancequeue_btn = QtWidgets.QPushButton(self.frame_3)
+        self.clearancequeue_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.clearancequeue_btn.setMaximumSize(QtCore.QSize(325, 325))
+        self.clearancequeue_btn.setStyleSheet("QPushButton{\n"
 "    \n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
@@ -434,8 +443,8 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.clearance_btn.setObjectName("clearance_btn")
-        self.horizontalLayout_5.addWidget(self.clearance_btn)
+        self.clearancequeue_btn.setObjectName("clearancequeue_btn")
+        self.horizontalLayout_5.addWidget(self.clearancequeue_btn)
         self.verticalLayout_4.addWidget(self.frame_3)
         self.frame_4 = QtWidgets.QFrame(self.frame_6)
         self.frame_4.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -444,10 +453,10 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.frame_4)
         self.horizontalLayout_6.setContentsMargins(-1, 0, -1, -1)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.academics_btn = QtWidgets.QPushButton(self.frame_4)
-        self.academics_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.academics_btn.setMaximumSize(QtCore.QSize(225, 225))
-        self.academics_btn.setStyleSheet("QPushButton{\n"
+        self.academicsqueue_btn = QtWidgets.QPushButton(self.frame_4)
+        self.academicsqueue_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.academicsqueue_btn.setMaximumSize(QtCore.QSize(225, 225))
+        self.academicsqueue_btn.setStyleSheet("QPushButton{\n"
 "    \n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
@@ -463,12 +472,12 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.academics_btn.setObjectName("academics_btn")
-        self.horizontalLayout_6.addWidget(self.academics_btn)
-        self.organization_btn = QtWidgets.QPushButton(self.frame_4)
-        self.organization_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.organization_btn.setMaximumSize(QtCore.QSize(225, 225))
-        self.organization_btn.setStyleSheet("QPushButton{\n"
+        self.academicsqueue_btn.setObjectName("academicsqueue_btn")
+        self.horizontalLayout_6.addWidget(self.academicsqueue_btn)
+        self.organizationqueue_btn = QtWidgets.QPushButton(self.frame_4)
+        self.organizationqueue_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.organizationqueue_btn.setMaximumSize(QtCore.QSize(225, 225))
+        self.organizationqueue_btn.setStyleSheet("QPushButton{\n"
 "    \n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
@@ -484,8 +493,8 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.organization_btn.setObjectName("organization_btn")
-        self.horizontalLayout_6.addWidget(self.organization_btn)
+        self.organizationqueue_btn.setObjectName("organizationqueue_btn")
+        self.horizontalLayout_6.addWidget(self.organizationqueue_btn)
         self.verticalLayout_4.addWidget(self.frame_4)
         self.frame_5 = QtWidgets.QFrame(self.frame_6)
         self.frame_5.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -494,10 +503,10 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.frame_5)
         self.horizontalLayout_7.setContentsMargins(-1, 0, -1, -1)
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
-        self.regular_btn = QtWidgets.QPushButton(self.frame_5)
-        self.regular_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.regular_btn.setMaximumSize(QtCore.QSize(225, 225))
-        self.regular_btn.setStyleSheet("QPushButton{\n"
+        self.regularlane_btn = QtWidgets.QPushButton(self.frame_5)
+        self.regularlane_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.regularlane_btn.setMaximumSize(QtCore.QSize(225, 225))
+        self.regularlane_btn.setStyleSheet("QPushButton{\n"
 "    \n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
@@ -513,12 +522,12 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.regular_btn.setObjectName("regular_btn")
-        self.horizontalLayout_7.addWidget(self.regular_btn)
-        self.faculty_btn = QtWidgets.QPushButton(self.frame_5)
-        self.faculty_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.faculty_btn.setMaximumSize(QtCore.QSize(225, 225))
-        self.faculty_btn.setStyleSheet("QPushButton{\n"
+        self.regularlane_btn.setObjectName("regularlane_btn")
+        self.horizontalLayout_7.addWidget(self.regularlane_btn)
+        self.facultylane_btn = QtWidgets.QPushButton(self.frame_5)
+        self.facultylane_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.facultylane_btn.setMaximumSize(QtCore.QSize(225, 225))
+        self.facultylane_btn.setStyleSheet("QPushButton{\n"
 "    \n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
@@ -534,8 +543,8 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.faculty_btn.setObjectName("faculty_btn")
-        self.horizontalLayout_7.addWidget(self.faculty_btn)
+        self.facultylane_btn.setObjectName("facultylane_btn")
+        self.horizontalLayout_7.addWidget(self.facultylane_btn)
         self.verticalLayout_4.addWidget(self.frame_5)
         self.verticalLayout_6.addWidget(self.frame_6)
         self.horizontalLayout_3.addWidget(self.frame)
@@ -1242,14 +1251,16 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.account_button.setText(_translate("ComputerStudiesQueuingSystem", "ACCOUNT"))
         self.settings_button.setText(_translate("ComputerStudiesQueuingSystem", "SETTINGS"))
         self.label_3.setText(_translate("ComputerStudiesQueuingSystem", "Queue"))
+        self.currentnum_display.setText(_translate("ComputerStudiesQueuingSystem", "0"))
+        self.label_4.setText(_translate("ComputerStudiesQueuingSystem", "CURRENT NUMBER"))
         self.label.setText(_translate("ComputerStudiesQueuingSystem", "        GET QUEUE NUMBER"))
         self.label_2.setText(_translate("ComputerStudiesQueuingSystem", "           SELECT PURPOSE HERE:"))
-        self.enrollment_btn.setText(_translate("ComputerStudiesQueuingSystem", "Enrollment"))
-        self.clearance_btn.setText(_translate("ComputerStudiesQueuingSystem", "Clearance"))
-        self.academics_btn.setText(_translate("ComputerStudiesQueuingSystem", "Academics"))
-        self.organization_btn.setText(_translate("ComputerStudiesQueuingSystem", "Organization"))
-        self.regular_btn.setText(_translate("ComputerStudiesQueuingSystem", "Regular Lane"))
-        self.faculty_btn.setText(_translate("ComputerStudiesQueuingSystem", "Faculty"))
+        self.enrollmentqueue_btn.setText(_translate("ComputerStudiesQueuingSystem", "Enrollment"))
+        self.clearancequeue_btn.setText(_translate("ComputerStudiesQueuingSystem", "Clearance"))
+        self.academicsqueue_btn.setText(_translate("ComputerStudiesQueuingSystem", "Academics"))
+        self.organizationqueue_btn.setText(_translate("ComputerStudiesQueuingSystem", "Organization"))
+        self.regularlane_btn.setText(_translate("ComputerStudiesQueuingSystem", "Regular Lane"))
+        self.facultylane_btn.setText(_translate("ComputerStudiesQueuingSystem", "Faculty Lane"))
         item = self.queue_table.horizontalHeaderItem(0)
         item.setText(_translate("ComputerStudiesQueuingSystem", "Date and Time"))
         item = self.queue_table.horizontalHeaderItem(1)
