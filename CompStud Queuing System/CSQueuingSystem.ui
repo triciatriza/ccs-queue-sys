@@ -140,6 +140,9 @@
 QPushButton:hover{
 	background-color: rgb(85, 170, 255);
 }
+QPushButton:pressed{
+	background-color:rgb(70, 141, 211);
+}
 
 </string>
           </property>
@@ -349,11 +352,13 @@ color: rgb(255, 255, 255);</string>
                <property name="styleSheet">
                 <string notr="true">QPushButton{
 	border: none;
-	
 	image: url(:/icons/icons/cil-window-minimize.png);
 }
 QPushButton:hover{
 	background-color: rgb(85, 170, 255);
+}
+QPushButton:pressed{
+	background-color:rgb(70, 141, 211);
 }
 </string>
                </property>
@@ -394,11 +399,13 @@ QPushButton:hover{
                <property name="styleSheet">
                 <string notr="true">QPushButton{
 	border: none;
-	
 	image: url(:/icons/icons/cil-window-maximize.png);
 }
 QPushButton:hover{
 	background-color: rgb(85, 170, 255);
+}
+QPushButton:pressed{
+	background-color:rgb(70, 141, 211);
 }</string>
                </property>
                <property name="text">
@@ -435,11 +442,13 @@ QPushButton:hover{
                <property name="styleSheet">
                 <string notr="true">QPushButton{
 	border: none;
-	
 	image: url(:/icons/icons/cil-x.png);
 }
 QPushButton:hover{
 	background-color: rgb(85, 170, 255);
+}
+QPushButton:pressed{
+	background-color:rgb(70, 141, 211);
 }</string>
                </property>
                <property name="text">
@@ -512,9 +521,10 @@ QPushButton{
 	border: none;
 	background-color: rgb(0, 58, 108);
 	color: rgb(255, 255, 255);
+	border-bottom: 2px solid transparent;
 }
-QPushButton:pressed{
-	border-bottom-color: rgb(85, 170, 255);
+QPushButton::pressed{
+	background-color:rgb(70, 141, 211);
 }
 
 </string>
@@ -544,6 +554,9 @@ QPushButton:pressed{
              <string notr="true">QPushButton:hover{
 	background-color: rgb(85, 170, 255);
 }
+QPushButton:focus{
+	border-bottom-color: rgb(0, 134, 243);
+}
 </string>
             </property>
             <property name="frameShape">
@@ -571,12 +584,20 @@ QPushButton:pressed{
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-browser.png);
-background-repeat:none;
-padding-left:45px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
-</string>
+                <string notr="true">QPushButton{
+	background-image: url(:/icons/icons/cil-browser.png);
+	background-repeat:none;
+	padding-left:45px;
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+}
+QPushButton:pressed{
+	background-color:rgb(70, 141, 211);
+}
+QPushButton:focus{
+	background-color: rgb(85, 170, 255);
+	border-bottom-color: rgb(0, 122, 221);
+}</string>
                </property>
                <property name="text">
                 <string>QUEUE</string>
@@ -601,11 +622,19 @@ font: 75 9pt &quot;Century Gothic&quot;;
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-3d.png);
-background-repeat:none;
-padding-left:51px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
+                <string notr="true">QPushButton{
+	background-image: url(:/icons/icons/cil-3d.png);
+	background-repeat:none;
+	padding-left:51px;
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+}
+QPushButton:pressed{
+	background-color:rgb(70, 141, 211);
+}
+QPushButton:focus{
+	background-color: rgb(85, 170, 255);
+}
 </string>
                </property>
                <property name="text">
@@ -631,11 +660,19 @@ font: 75 9pt &quot;Century Gothic&quot;;
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-pencil.png);
-background-repeat:none;
-padding-left:52px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
+                <string notr="true">QPushButton{
+	background-image: url(:/icons/icons/cil-pencil.png);
+	background-repeat:none;
+	padding-left:52px;
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+}
+QPushButton:pressed{
+	background-color:rgb(70, 141, 211);
+}
+QPushButton:focus{
+	background-color: rgb(85, 170, 255);
+}
 </string>
                </property>
                <property name="text">
@@ -661,11 +698,19 @@ font: 75 9pt &quot;Century Gothic&quot;;
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-pin.png);
-background-repeat:none;
-padding-left:36px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
+                <string notr="true">QPushButton{
+	background-image: url(:/icons/icons/cil-pin.png);
+	background-repeat:none;
+	padding-left:36px;
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+}
+QPushButton:pressed{
+	background-color:rgb(70, 141, 211);
+}
+QPushButton:focus{
+	background-color: rgb(85, 170, 255);
+}
 </string>
                </property>
                <property name="text">
@@ -713,11 +758,19 @@ font: 75 9pt &quot;Century Gothic&quot;;
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-user.png);
-background-repeat:none;
-padding-left:35px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
+                <string notr="true">QPushButton{
+	background-image: url(:/icons/icons/cil-user.png);
+	background-repeat:none;
+	padding-left:35px;
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+}
+QPushButton:pressed{
+	background-color:rgb(70, 141, 211);
+}
+QPushButton:focus{
+	background-color: rgb(85, 170, 255);
+}
 </string>
                </property>
                <property name="text">
@@ -743,11 +796,19 @@ font: 75 9pt &quot;Century Gothic&quot;;
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-image: url(:/icons/icons/cil-settings.png);
-background-repeat: none;
-padding-left:35px;
-background-position: center left;
-font: 75 9pt &quot;Century Gothic&quot;;
+                <string notr="true">QPushButton{
+	background-image: url(:/icons/icons/cil-settings.png);
+	background-repeat: none;
+	padding-left:35px;
+	background-position: center left;
+	font: 75 9pt &quot;Century Gothic&quot;;
+}
+QPushButton:pressed{
+	background-color:rgb(70, 141, 211);
+}
+QPushButton:focus{
+	background-color: rgb(85, 170, 255);
+}
 </string>
                </property>
                <property name="text">
