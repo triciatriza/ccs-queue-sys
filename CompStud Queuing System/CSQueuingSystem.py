@@ -53,6 +53,7 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.Btn_Toggle.setSizePolicy(sizePolicy)
         self.Btn_Toggle.setMinimumSize(QtCore.QSize(70, 60))
         self.Btn_Toggle.setMaximumSize(QtCore.QSize(250, 16777215))
+        self.Btn_Toggle.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Btn_Toggle.setStyleSheet("QPushButton{\n"
 "    \n"
 "    background-image: url(:/icons/icons/cil-menu.png);\n"
@@ -62,6 +63,9 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "}\n"
 "QPushButton:hover{\n"
 "    background-color: rgb(85, 170, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color:rgb(70, 141, 211);\n"
 "}\n"
 "\n"
 "")
@@ -89,12 +93,14 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.horizontalLayout_10.setContentsMargins(0, 0, 9, 9)
         self.horizontalLayout_10.setObjectName("horizontalLayout_10")
         self.frame_16 = QtWidgets.QFrame(self.frame_15)
+        self.frame_16.setCursor(QtGui.QCursor(QtCore.Qt.SizeAllCursor))
         self.frame_16.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_16.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_16.setObjectName("frame_16")
         self.horizontalLayout_10.addWidget(self.frame_16)
         self.label_9 = QtWidgets.QLabel(self.frame_15)
         self.label_9.setMaximumSize(QtCore.QSize(50, 40))
+        self.label_9.setCursor(QtGui.QCursor(QtCore.Qt.SizeAllCursor))
         self.label_9.setStyleSheet("image: url(:/icons/icons/CS.png);")
         self.label_9.setText("")
         self.label_9.setTextFormat(QtCore.Qt.PlainText)
@@ -105,11 +111,13 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.label_5 = QtWidgets.QLabel(self.frame_15)
         self.label_5.setMinimumSize(QtCore.QSize(200, 0))
         self.label_5.setMaximumSize(QtCore.QSize(900, 16777215))
+        self.label_5.setCursor(QtGui.QCursor(QtCore.Qt.SizeAllCursor))
         self.label_5.setStyleSheet("font: 75 14pt \"Century Gothic\";\n"
 "color: rgb(255, 255, 255);")
         self.label_5.setObjectName("label_5")
         self.horizontalLayout_10.addWidget(self.label_5)
         self.frame_17 = QtWidgets.QFrame(self.frame_15)
+        self.frame_17.setCursor(QtGui.QCursor(QtCore.Qt.SizeAllCursor))
         self.frame_17.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_17.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_17.setObjectName("frame_17")
@@ -128,13 +136,16 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.minimize_btn = QtWidgets.QPushButton(self.frame_14)
         self.minimize_btn.setMinimumSize(QtCore.QSize(30, 30))
         self.minimize_btn.setMaximumSize(QtCore.QSize(30, 30))
+        self.minimize_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.minimize_btn.setStyleSheet("QPushButton{\n"
 "    border: none;\n"
-"    \n"
 "    image: url(:/icons/icons/cil-window-minimize.png);\n"
 "}\n"
 "QPushButton:hover{\n"
 "    background-color: rgb(85, 170, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color:rgb(70, 141, 211);\n"
 "}\n"
 "")
         self.minimize_btn.setText("")
@@ -144,14 +155,17 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.maximize_btn = QtWidgets.QPushButton(self.frame_14)
         self.maximize_btn.setMaximumSize(QtCore.QSize(30, 30))
         self.maximize_btn.setSizeIncrement(QtCore.QSize(30, 30))
+        self.maximize_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.maximize_btn.setToolTipDuration(0)
         self.maximize_btn.setStyleSheet("QPushButton{\n"
 "    border: none;\n"
-"    \n"
 "    image: url(:/icons/icons/cil-window-maximize.png);\n"
 "}\n"
 "QPushButton:hover{\n"
 "    background-color: rgb(85, 170, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color:rgb(70, 141, 211);\n"
 "}")
         self.maximize_btn.setText("")
         self.maximize_btn.setIconSize(QtCore.QSize(30, 30))
@@ -160,13 +174,16 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.close_btn = QtWidgets.QPushButton(self.frame_14)
         self.close_btn.setMinimumSize(QtCore.QSize(30, 30))
         self.close_btn.setMaximumSize(QtCore.QSize(30, 30))
+        self.close_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.close_btn.setStyleSheet("QPushButton{\n"
 "    border: none;\n"
-"    \n"
 "    image: url(:/icons/icons/cil-x.png);\n"
 "}\n"
 "QPushButton:hover{\n"
 "    background-color: rgb(85, 170, 255);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color:rgb(70, 141, 211);\n"
 "}")
         self.close_btn.setText("")
         self.close_btn.setIconSize(QtCore.QSize(30, 30))
@@ -195,9 +212,10 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "    border: none;\n"
 "    background-color: rgb(0, 58, 108);\n"
 "    color: rgb(255, 255, 255);\n"
+"    border-bottom: 2px solid transparent;\n"
 "}\n"
-"QPushButton:pressed{\n"
-"    border-bottom-color: rgb(85, 170, 255);\n"
+"QPushButton::pressed{\n"
+"    background-color:rgb(70, 141, 211);\n"
 "}\n"
 "\n"
 "")
@@ -212,6 +230,9 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.frame_for_buttons.setStyleSheet("QPushButton:hover{\n"
 "    background-color: rgb(85, 170, 255);\n"
 "}\n"
+"QPushButton:focus{\n"
+"    border-bottom-color: rgb(0, 134, 243);\n"
+"}\n"
 "")
         self.frame_for_buttons.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_for_buttons.setFrameShadow(QtWidgets.QFrame.Plain)
@@ -221,44 +242,80 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.queue_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.queue_button.setMinimumSize(QtCore.QSize(200, 0))
         self.queue_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.queue_button.setStyleSheet("background-image: url(:/icons/icons/cil-browser.png);\n"
-"background-repeat:none;\n"
-"padding-left:45px;\n"
-"background-position: center left;\n"
-"font: 75 9pt \"Century Gothic\";\n"
-"")
+        self.queue_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.queue_button.setStyleSheet("QPushButton{\n"
+"    background-image: url(:/icons/icons/cil-browser.png);\n"
+"    background-repeat:none;\n"
+"    padding-left:45px;\n"
+"    background-position: center left;\n"
+"    font: 75 9pt \"Century Gothic\";\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color:rgb(70, 141, 211);\n"
+"}\n"
+"QPushButton:focus{\n"
+"    background-color: rgb(85, 170, 255);\n"
+"    border-bottom-color: rgb(0, 122, 221);\n"
+"}")
         self.queue_button.setObjectName("queue_button")
         self.verticalLayout_2.addWidget(self.queue_button)
         self.roomreservation_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.roomreservation_button.setMinimumSize(QtCore.QSize(200, 0))
         self.roomreservation_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.roomreservation_button.setStyleSheet("background-image: url(:/icons/icons/cil-3d.png);\n"
-"background-repeat:none;\n"
-"padding-left:51px;\n"
-"background-position: center left;\n"
-"font: 75 9pt \"Century Gothic\";\n"
+        self.roomreservation_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.roomreservation_button.setStyleSheet("QPushButton{\n"
+"    background-image: url(:/icons/icons/cil-3d.png);\n"
+"    background-repeat:none;\n"
+"    padding-left:51px;\n"
+"    background-position: center left;\n"
+"    font: 75 9pt \"Century Gothic\";\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color:rgb(70, 141, 211);\n"
+"}\n"
+"QPushButton:focus{\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}\n"
 "")
         self.roomreservation_button.setObjectName("roomreservation_button")
         self.verticalLayout_2.addWidget(self.roomreservation_button)
         self.appointment_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.appointment_button.setMinimumSize(QtCore.QSize(200, 0))
         self.appointment_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.appointment_button.setStyleSheet("background-image: url(:/icons/icons/cil-pencil.png);\n"
-"background-repeat:none;\n"
-"padding-left:52px;\n"
-"background-position: center left;\n"
-"font: 75 9pt \"Century Gothic\";\n"
+        self.appointment_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.appointment_button.setStyleSheet("QPushButton{\n"
+"    background-image: url(:/icons/icons/cil-pencil.png);\n"
+"    background-repeat:none;\n"
+"    padding-left:52px;\n"
+"    background-position: center left;\n"
+"    font: 75 9pt \"Century Gothic\";\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color:rgb(70, 141, 211);\n"
+"}\n"
+"QPushButton:focus{\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}\n"
 "")
         self.appointment_button.setObjectName("appointment_button")
         self.verticalLayout_2.addWidget(self.appointment_button)
         self.scholarquests_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.scholarquests_button.setMinimumSize(QtCore.QSize(200, 0))
         self.scholarquests_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.scholarquests_button.setStyleSheet("background-image: url(:/icons/icons/cil-pin.png);\n"
-"background-repeat:none;\n"
-"padding-left:36px;\n"
-"background-position: center left;\n"
-"font: 75 9pt \"Century Gothic\";\n"
+        self.scholarquests_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.scholarquests_button.setStyleSheet("QPushButton{\n"
+"    background-image: url(:/icons/icons/cil-pin.png);\n"
+"    background-repeat:none;\n"
+"    padding-left:36px;\n"
+"    background-position: center left;\n"
+"    font: 75 9pt \"Century Gothic\";\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color:rgb(70, 141, 211);\n"
+"}\n"
+"QPushButton:focus{\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}\n"
 "")
         self.scholarquests_button.setObjectName("scholarquests_button")
         self.verticalLayout_2.addWidget(self.scholarquests_button)
@@ -272,22 +329,40 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.account_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.account_button.setMinimumSize(QtCore.QSize(200, 0))
         self.account_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.account_button.setStyleSheet("background-image: url(:/icons/icons/cil-user.png);\n"
-"background-repeat:none;\n"
-"padding-left:35px;\n"
-"background-position: center left;\n"
-"font: 75 9pt \"Century Gothic\";\n"
+        self.account_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.account_button.setStyleSheet("QPushButton{\n"
+"    background-image: url(:/icons/icons/cil-user.png);\n"
+"    background-repeat:none;\n"
+"    padding-left:35px;\n"
+"    background-position: center left;\n"
+"    font: 75 9pt \"Century Gothic\";\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color:rgb(70, 141, 211);\n"
+"}\n"
+"QPushButton:focus{\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}\n"
 "")
         self.account_button.setObjectName("account_button")
         self.verticalLayout_2.addWidget(self.account_button)
         self.settings_button = QtWidgets.QPushButton(self.frame_for_buttons)
         self.settings_button.setMinimumSize(QtCore.QSize(200, 0))
         self.settings_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.settings_button.setStyleSheet("background-image: url(:/icons/icons/cil-settings.png);\n"
-"background-repeat: none;\n"
-"padding-left:35px;\n"
-"background-position: center left;\n"
-"font: 75 9pt \"Century Gothic\";\n"
+        self.settings_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.settings_button.setStyleSheet("QPushButton{\n"
+"    background-image: url(:/icons/icons/cil-settings.png);\n"
+"    background-repeat: none;\n"
+"    padding-left:35px;\n"
+"    background-position: center left;\n"
+"    font: 75 9pt \"Century Gothic\";\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color:rgb(70, 141, 211);\n"
+"}\n"
+"QPushButton:focus{\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}\n"
 "")
         self.settings_button.setObjectName("settings_button")
         self.verticalLayout_2.addWidget(self.settings_button)
@@ -348,6 +423,136 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.frame_13.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_13.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_13.setObjectName("frame_13")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.frame_13)
+        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.frame_74 = QtWidgets.QFrame(self.frame_13)
+        self.frame_74.setMinimumSize(QtCore.QSize(0, 250))
+        self.frame_74.setMaximumSize(QtCore.QSize(16777215, 500))
+        self.frame_74.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_74.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_74.setObjectName("frame_74")
+        self.horizontalLayout_30 = QtWidgets.QHBoxLayout(self.frame_74)
+        self.horizontalLayout_30.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_30.setSpacing(0)
+        self.horizontalLayout_30.setObjectName("horizontalLayout_30")
+        self.frame_70 = QtWidgets.QFrame(self.frame_74)
+        self.frame_70.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_70.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_70.setObjectName("frame_70")
+        self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.frame_70)
+        self.verticalLayout_11.setContentsMargins(30, 9, 30, 0)
+        self.verticalLayout_11.setSpacing(9)
+        self.verticalLayout_11.setObjectName("verticalLayout_11")
+        self.currentnum_display = QtWidgets.QLabel(self.frame_70)
+        self.currentnum_display.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"font: 100pt \"Segoe UI\";\n"
+"border-radius: 20px")
+        self.currentnum_display.setAlignment(QtCore.Qt.AlignCenter)
+        self.currentnum_display.setObjectName("currentnum_display")
+        self.verticalLayout_11.addWidget(self.currentnum_display)
+        self.frame_71 = QtWidgets.QFrame(self.frame_70)
+        self.frame_71.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.frame_71.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_71.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_71.setObjectName("frame_71")
+        self.horizontalLayout_23 = QtWidgets.QHBoxLayout(self.frame_71)
+        self.horizontalLayout_23.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_23.setSpacing(0)
+        self.horizontalLayout_23.setObjectName("horizontalLayout_23")
+        self.frame_72 = QtWidgets.QFrame(self.frame_71)
+        self.frame_72.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_72.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_72.setObjectName("frame_72")
+        self.horizontalLayout_23.addWidget(self.frame_72)
+        self.label_4 = QtWidgets.QLabel(self.frame_71)
+        self.label_4.setStyleSheet("font: 75 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(0, 58, 108);")
+        self.label_4.setObjectName("label_4")
+        self.horizontalLayout_23.addWidget(self.label_4)
+        self.frame_73 = QtWidgets.QFrame(self.frame_71)
+        self.frame_73.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_73.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_73.setObjectName("frame_73")
+        self.horizontalLayout_23.addWidget(self.frame_73)
+        self.verticalLayout_11.addWidget(self.frame_71)
+        self.horizontalLayout_30.addWidget(self.frame_70)
+        self.frame_75 = QtWidgets.QFrame(self.frame_74)
+        self.frame_75.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_75.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_75.setObjectName("frame_75")
+        self.horizontalLayout_30.addWidget(self.frame_75)
+        self.verticalLayout_12.addWidget(self.frame_74)
+        self.frame_69 = QtWidgets.QFrame(self.frame_13)
+        self.frame_69.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_69.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_69.setObjectName("frame_69")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.frame_69)
+        self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_10.setSpacing(0)
+        self.verticalLayout_10.setObjectName("verticalLayout_10")
+        self.frame_65 = QtWidgets.QFrame(self.frame_69)
+        self.frame_65.setMinimumSize(QtCore.QSize(0, 100))
+        self.frame_65.setMaximumSize(QtCore.QSize(16777215, 200))
+        self.frame_65.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_65.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_65.setObjectName("frame_65")
+        self.horizontalLayout_17 = QtWidgets.QHBoxLayout(self.frame_65)
+        self.horizontalLayout_17.setContentsMargins(30, 30, 30, 10)
+        self.horizontalLayout_17.setSpacing(25)
+        self.horizontalLayout_17.setObjectName("horizontalLayout_17")
+        self.label_6 = QtWidgets.QLabel(self.frame_65)
+        self.label_6.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"font: 72pt \"Segoe UI\";\n"
+"border-radius: 20px")
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_6.setObjectName("label_6")
+        self.horizontalLayout_17.addWidget(self.label_6)
+        self.label_7 = QtWidgets.QLabel(self.frame_65)
+        self.label_7.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"font: 72pt \"Segoe UI\";\n"
+"border-radius: 20px")
+        self.label_7.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_7.setObjectName("label_7")
+        self.horizontalLayout_17.addWidget(self.label_7)
+        self.label_8 = QtWidgets.QLabel(self.frame_65)
+        self.label_8.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"font: 72pt \"Segoe UI\";\n"
+"border-radius: 20px")
+        self.label_8.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_8.setObjectName("label_8")
+        self.horizontalLayout_17.addWidget(self.label_8)
+        self.verticalLayout_10.addWidget(self.frame_65)
+        self.frame_66 = QtWidgets.QFrame(self.frame_69)
+        self.frame_66.setMinimumSize(QtCore.QSize(0, 30))
+        self.frame_66.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.frame_66.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_66.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_66.setObjectName("frame_66")
+        self.horizontalLayout_22 = QtWidgets.QHBoxLayout(self.frame_66)
+        self.horizontalLayout_22.setContentsMargins(0, 0, 0, 9)
+        self.horizontalLayout_22.setSpacing(0)
+        self.horizontalLayout_22.setObjectName("horizontalLayout_22")
+        self.frame_67 = QtWidgets.QFrame(self.frame_66)
+        self.frame_67.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_67.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_67.setObjectName("frame_67")
+        self.horizontalLayout_22.addWidget(self.frame_67)
+        self.label_10 = QtWidgets.QLabel(self.frame_66)
+        self.label_10.setStyleSheet("font: 75 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(0, 58, 108);")
+        self.label_10.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.label_10.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_10.setObjectName("label_10")
+        self.horizontalLayout_22.addWidget(self.label_10)
+        self.frame_68 = QtWidgets.QFrame(self.frame_66)
+        self.frame_68.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_68.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_68.setObjectName("frame_68")
+        self.horizontalLayout_22.addWidget(self.frame_68)
+        self.verticalLayout_10.addWidget(self.frame_66)
+        self.verticalLayout_12.addWidget(self.frame_69)
         self.verticalLayout_8.addWidget(self.frame_13)
         self.horizontalLayout_3.addWidget(self.frame_2)
         self.frame = QtWidgets.QFrame(self.queue_page)
@@ -396,10 +601,11 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_3)
         self.horizontalLayout_5.setContentsMargins(-1, 0, -1, -1)
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.enrollment_btn = QtWidgets.QPushButton(self.frame_3)
-        self.enrollment_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.enrollment_btn.setMaximumSize(QtCore.QSize(325, 325))
-        self.enrollment_btn.setStyleSheet("QPushButton{\n"
+        self.enrollmentqueue_btn = QtWidgets.QPushButton(self.frame_3)
+        self.enrollmentqueue_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.enrollmentqueue_btn.setMaximumSize(QtCore.QSize(325, 325))
+        self.enrollmentqueue_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.enrollmentqueue_btn.setStyleSheet("QPushButton{\n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
 "    padding-top: 5px;\n"
@@ -413,12 +619,13 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.enrollment_btn.setObjectName("enrollment_btn")
-        self.horizontalLayout_5.addWidget(self.enrollment_btn)
-        self.clearance_btn = QtWidgets.QPushButton(self.frame_3)
-        self.clearance_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.clearance_btn.setMaximumSize(QtCore.QSize(325, 325))
-        self.clearance_btn.setStyleSheet("QPushButton{\n"
+        self.enrollmentqueue_btn.setObjectName("enrollmentqueue_btn")
+        self.horizontalLayout_5.addWidget(self.enrollmentqueue_btn)
+        self.clearancequeue_btn = QtWidgets.QPushButton(self.frame_3)
+        self.clearancequeue_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.clearancequeue_btn.setMaximumSize(QtCore.QSize(325, 325))
+        self.clearancequeue_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.clearancequeue_btn.setStyleSheet("QPushButton{\n"
 "    \n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
@@ -434,8 +641,8 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.clearance_btn.setObjectName("clearance_btn")
-        self.horizontalLayout_5.addWidget(self.clearance_btn)
+        self.clearancequeue_btn.setObjectName("clearancequeue_btn")
+        self.horizontalLayout_5.addWidget(self.clearancequeue_btn)
         self.verticalLayout_4.addWidget(self.frame_3)
         self.frame_4 = QtWidgets.QFrame(self.frame_6)
         self.frame_4.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -444,10 +651,11 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.frame_4)
         self.horizontalLayout_6.setContentsMargins(-1, 0, -1, -1)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.academics_btn = QtWidgets.QPushButton(self.frame_4)
-        self.academics_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.academics_btn.setMaximumSize(QtCore.QSize(225, 225))
-        self.academics_btn.setStyleSheet("QPushButton{\n"
+        self.academicsqueue_btn = QtWidgets.QPushButton(self.frame_4)
+        self.academicsqueue_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.academicsqueue_btn.setMaximumSize(QtCore.QSize(225, 225))
+        self.academicsqueue_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.academicsqueue_btn.setStyleSheet("QPushButton{\n"
 "    \n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
@@ -463,12 +671,13 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.academics_btn.setObjectName("academics_btn")
-        self.horizontalLayout_6.addWidget(self.academics_btn)
-        self.organization_btn = QtWidgets.QPushButton(self.frame_4)
-        self.organization_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.organization_btn.setMaximumSize(QtCore.QSize(225, 225))
-        self.organization_btn.setStyleSheet("QPushButton{\n"
+        self.academicsqueue_btn.setObjectName("academicsqueue_btn")
+        self.horizontalLayout_6.addWidget(self.academicsqueue_btn)
+        self.organizationqueue_btn = QtWidgets.QPushButton(self.frame_4)
+        self.organizationqueue_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.organizationqueue_btn.setMaximumSize(QtCore.QSize(225, 225))
+        self.organizationqueue_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.organizationqueue_btn.setStyleSheet("QPushButton{\n"
 "    \n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
@@ -484,8 +693,8 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.organization_btn.setObjectName("organization_btn")
-        self.horizontalLayout_6.addWidget(self.organization_btn)
+        self.organizationqueue_btn.setObjectName("organizationqueue_btn")
+        self.horizontalLayout_6.addWidget(self.organizationqueue_btn)
         self.verticalLayout_4.addWidget(self.frame_4)
         self.frame_5 = QtWidgets.QFrame(self.frame_6)
         self.frame_5.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -494,10 +703,11 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.frame_5)
         self.horizontalLayout_7.setContentsMargins(-1, 0, -1, -1)
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
-        self.regular_btn = QtWidgets.QPushButton(self.frame_5)
-        self.regular_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.regular_btn.setMaximumSize(QtCore.QSize(225, 225))
-        self.regular_btn.setStyleSheet("QPushButton{\n"
+        self.regularlane_btn = QtWidgets.QPushButton(self.frame_5)
+        self.regularlane_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.regularlane_btn.setMaximumSize(QtCore.QSize(225, 225))
+        self.regularlane_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.regularlane_btn.setStyleSheet("QPushButton{\n"
 "    \n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
@@ -513,12 +723,13 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.regular_btn.setObjectName("regular_btn")
-        self.horizontalLayout_7.addWidget(self.regular_btn)
-        self.faculty_btn = QtWidgets.QPushButton(self.frame_5)
-        self.faculty_btn.setMinimumSize(QtCore.QSize(125, 125))
-        self.faculty_btn.setMaximumSize(QtCore.QSize(225, 225))
-        self.faculty_btn.setStyleSheet("QPushButton{\n"
+        self.regularlane_btn.setObjectName("regularlane_btn")
+        self.horizontalLayout_7.addWidget(self.regularlane_btn)
+        self.facultylane_btn = QtWidgets.QPushButton(self.frame_5)
+        self.facultylane_btn.setMinimumSize(QtCore.QSize(125, 125))
+        self.facultylane_btn.setMaximumSize(QtCore.QSize(225, 225))
+        self.facultylane_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.facultylane_btn.setStyleSheet("QPushButton{\n"
 "    \n"
 "    background-color: rgb(0, 97, 176);\n"
 "    border: none;\n"
@@ -534,8 +745,8 @@ class Ui_ComputerStudiesQueuingSystem(object):
 "QPushButton:pressed{\n"
 "    background-color:rgb(70, 141, 211);\n"
 "}")
-        self.faculty_btn.setObjectName("faculty_btn")
-        self.horizontalLayout_7.addWidget(self.faculty_btn)
+        self.facultylane_btn.setObjectName("facultylane_btn")
+        self.horizontalLayout_7.addWidget(self.facultylane_btn)
         self.verticalLayout_4.addWidget(self.frame_5)
         self.verticalLayout_6.addWidget(self.frame_6)
         self.horizontalLayout_3.addWidget(self.frame)
@@ -1210,9 +1421,145 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.stackedWidget.addWidget(self.acceptquests_page)
         self.account_page = QtWidgets.QWidget()
         self.account_page.setObjectName("account_page")
-        self.label_11 = QtWidgets.QLabel(self.account_page)
-        self.label_11.setGeometry(QtCore.QRect(410, 230, 81, 16))
+        self.horizontalLayout_31 = QtWidgets.QHBoxLayout(self.account_page)
+        self.horizontalLayout_31.setContentsMargins(20, 20, 20, 20)
+        self.horizontalLayout_31.setObjectName("horizontalLayout_31")
+        self.frame_76 = QtWidgets.QFrame(self.account_page)
+        self.frame_76.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius: 20px;")
+        self.frame_76.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_76.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_76.setObjectName("frame_76")
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.frame_76)
+        self.verticalLayout_13.setContentsMargins(20, -1, 20, 30)
+        self.verticalLayout_13.setSpacing(10)
+        self.verticalLayout_13.setObjectName("verticalLayout_13")
+        self.frame_77 = QtWidgets.QFrame(self.frame_76)
+        self.frame_77.setMaximumSize(QtCore.QSize(16777215, 175))
+        self.frame_77.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_77.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_77.setObjectName("frame_77")
+        self.horizontalLayout_32 = QtWidgets.QHBoxLayout(self.frame_77)
+        self.horizontalLayout_32.setObjectName("horizontalLayout_32")
+        self.frame_79 = QtWidgets.QFrame(self.frame_77)
+        self.frame_79.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_79.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_79.setObjectName("frame_79")
+        self.horizontalLayout_32.addWidget(self.frame_79)
+        self.label_11 = QtWidgets.QLabel(self.frame_77)
+        self.label_11.setMinimumSize(QtCore.QSize(150, 150))
+        self.label_11.setMaximumSize(QtCore.QSize(150, 150))
+        self.label_11.setText("")
+        self.label_11.setPixmap(QtGui.QPixmap("icons/PicsArt_04-13-11.17.06.png"))
+        self.label_11.setScaledContents(True)
         self.label_11.setObjectName("label_11")
+        self.horizontalLayout_32.addWidget(self.label_11)
+        self.frame_78 = QtWidgets.QFrame(self.frame_77)
+        self.frame_78.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_78.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_78.setObjectName("frame_78")
+        self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.frame_78)
+        self.verticalLayout_14.setObjectName("verticalLayout_14")
+        self.label_13 = QtWidgets.QLabel(self.frame_78)
+        self.label_13.setStyleSheet("color: rgb(0, 58, 108);\n"
+"font: 60pt \"Segoe UI\";")
+        self.label_13.setObjectName("label_13")
+        self.verticalLayout_14.addWidget(self.label_13)
+        self.horizontalLayout_32.addWidget(self.frame_78)
+        self.frame_81 = QtWidgets.QFrame(self.frame_77)
+        self.frame_81.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_81.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_81.setObjectName("frame_81")
+        self.horizontalLayout_32.addWidget(self.frame_81)
+        self.verticalLayout_13.addWidget(self.frame_77)
+        self.frame_80 = QtWidgets.QFrame(self.frame_76)
+        self.frame_80.setStyleSheet("")
+        self.frame_80.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_80.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_80.setObjectName("frame_80")
+        self.horizontalLayout_33 = QtWidgets.QHBoxLayout(self.frame_80)
+        self.horizontalLayout_33.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_33.setSpacing(0)
+        self.horizontalLayout_33.setObjectName("horizontalLayout_33")
+        self.frame_82 = QtWidgets.QFrame(self.frame_80)
+        self.frame_82.setMinimumSize(QtCore.QSize(400, 0))
+        self.frame_82.setMaximumSize(QtCore.QSize(600, 16777215))
+        self.frame_82.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_82.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_82.setObjectName("frame_82")
+        self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.frame_82)
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_15.setSpacing(0)
+        self.verticalLayout_15.setObjectName("verticalLayout_15")
+        self.label_14 = QtWidgets.QLabel(self.frame_82)
+        self.label_14.setStyleSheet("font: 14pt \"Segoe UI\";\n"
+"color: rgb(0, 58, 108);")
+        self.label_14.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_14.setObjectName("label_14")
+        self.verticalLayout_15.addWidget(self.label_14)
+        self.label_15 = QtWidgets.QLabel(self.frame_82)
+        self.label_15.setStyleSheet("font: 14pt \"Segoe UI\";\n"
+"color: rgb(0, 58, 108);")
+        self.label_15.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_15.setObjectName("label_15")
+        self.verticalLayout_15.addWidget(self.label_15)
+        self.label_16 = QtWidgets.QLabel(self.frame_82)
+        self.label_16.setStyleSheet("font: 14pt \"Segoe UI\";\n"
+"color: rgb(0, 58, 108);")
+        self.label_16.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_16.setObjectName("label_16")
+        self.verticalLayout_15.addWidget(self.label_16)
+        self.label_20 = QtWidgets.QLabel(self.frame_82)
+        self.label_20.setStyleSheet("font: 14pt \"Segoe UI\";\n"
+"color: rgb(0, 58, 108);")
+        self.label_20.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_20.setObjectName("label_20")
+        self.verticalLayout_15.addWidget(self.label_20)
+        self.frame_85 = QtWidgets.QFrame(self.frame_82)
+        self.frame_85.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_85.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_85.setObjectName("frame_85")
+        self.verticalLayout_15.addWidget(self.frame_85)
+        self.horizontalLayout_33.addWidget(self.frame_82)
+        self.frame_84 = QtWidgets.QFrame(self.frame_80)
+        self.frame_84.setMaximumSize(QtCore.QSize(25, 16777215))
+        self.frame_84.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_84.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_84.setObjectName("frame_84")
+        self.horizontalLayout_33.addWidget(self.frame_84)
+        self.frame_83 = QtWidgets.QFrame(self.frame_80)
+        self.frame_83.setStyleSheet("")
+        self.frame_83.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_83.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_83.setObjectName("frame_83")
+        self.verticalLayout_16 = QtWidgets.QVBoxLayout(self.frame_83)
+        self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_16.setSpacing(0)
+        self.verticalLayout_16.setObjectName("verticalLayout_16")
+        self.label_21 = QtWidgets.QLabel(self.frame_83)
+        self.label_21.setStyleSheet("font: 11pt \"Segoe UI\";")
+        self.label_21.setObjectName("label_21")
+        self.verticalLayout_16.addWidget(self.label_21)
+        self.label_22 = QtWidgets.QLabel(self.frame_83)
+        self.label_22.setStyleSheet("font: 11pt \"Segoe UI\";")
+        self.label_22.setObjectName("label_22")
+        self.verticalLayout_16.addWidget(self.label_22)
+        self.label_23 = QtWidgets.QLabel(self.frame_83)
+        self.label_23.setStyleSheet("font: 11pt \"Segoe UI\";")
+        self.label_23.setObjectName("label_23")
+        self.verticalLayout_16.addWidget(self.label_23)
+        self.label_24 = QtWidgets.QLabel(self.frame_83)
+        self.label_24.setStyleSheet("font: 11pt \"Segoe UI\";")
+        self.label_24.setObjectName("label_24")
+        self.verticalLayout_16.addWidget(self.label_24)
+        self.frame_86 = QtWidgets.QFrame(self.frame_83)
+        self.frame_86.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_86.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.frame_86.setObjectName("frame_86")
+        self.verticalLayout_16.addWidget(self.frame_86)
+        self.horizontalLayout_33.addWidget(self.frame_83)
+        self.verticalLayout_13.addWidget(self.frame_80)
+        self.horizontalLayout_31.addWidget(self.frame_76)
         self.stackedWidget.addWidget(self.account_page)
         self.settings_page = QtWidgets.QWidget()
         self.settings_page.setObjectName("settings_page")
@@ -1225,7 +1572,7 @@ class Ui_ComputerStudiesQueuingSystem(object):
         ComputerStudiesQueuingSystem.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(ComputerStudiesQueuingSystem)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(9)
         QtCore.QMetaObject.connectSlotsByName(ComputerStudiesQueuingSystem)
 
     def retranslateUi(self, ComputerStudiesQueuingSystem):
@@ -1242,14 +1589,20 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.account_button.setText(_translate("ComputerStudiesQueuingSystem", "ACCOUNT"))
         self.settings_button.setText(_translate("ComputerStudiesQueuingSystem", "SETTINGS"))
         self.label_3.setText(_translate("ComputerStudiesQueuingSystem", "Queue"))
+        self.currentnum_display.setText(_translate("ComputerStudiesQueuingSystem", "0"))
+        self.label_4.setText(_translate("ComputerStudiesQueuingSystem", "NOW SERVING"))
+        self.label_6.setText(_translate("ComputerStudiesQueuingSystem", "0"))
+        self.label_7.setText(_translate("ComputerStudiesQueuingSystem", "0"))
+        self.label_8.setText(_translate("ComputerStudiesQueuingSystem", "0"))
+        self.label_10.setText(_translate("ComputerStudiesQueuingSystem", "NEXT IN LINE"))
         self.label.setText(_translate("ComputerStudiesQueuingSystem", "        GET QUEUE NUMBER"))
         self.label_2.setText(_translate("ComputerStudiesQueuingSystem", "           SELECT PURPOSE HERE:"))
-        self.enrollment_btn.setText(_translate("ComputerStudiesQueuingSystem", "Enrollment"))
-        self.clearance_btn.setText(_translate("ComputerStudiesQueuingSystem", "Clearance"))
-        self.academics_btn.setText(_translate("ComputerStudiesQueuingSystem", "Academics"))
-        self.organization_btn.setText(_translate("ComputerStudiesQueuingSystem", "Organization"))
-        self.regular_btn.setText(_translate("ComputerStudiesQueuingSystem", "Regular Lane"))
-        self.faculty_btn.setText(_translate("ComputerStudiesQueuingSystem", "Faculty"))
+        self.enrollmentqueue_btn.setText(_translate("ComputerStudiesQueuingSystem", "Enrollment"))
+        self.clearancequeue_btn.setText(_translate("ComputerStudiesQueuingSystem", "Clearance"))
+        self.academicsqueue_btn.setText(_translate("ComputerStudiesQueuingSystem", "Academics"))
+        self.organizationqueue_btn.setText(_translate("ComputerStudiesQueuingSystem", "Organization"))
+        self.regularlane_btn.setText(_translate("ComputerStudiesQueuingSystem", "Regular Lane"))
+        self.facultylane_btn.setText(_translate("ComputerStudiesQueuingSystem", "Faculty Lane"))
         item = self.queue_table.horizontalHeaderItem(0)
         item.setText(_translate("ComputerStudiesQueuingSystem", "Date and Time"))
         item = self.queue_table.horizontalHeaderItem(1)
@@ -1333,7 +1686,15 @@ class Ui_ComputerStudiesQueuingSystem(object):
         item = self.availableQuest_table.horizontalHeaderItem(4)
         item.setText(_translate("ComputerStudiesQueuingSystem", "Description"))
         self.acceptQuest_btn.setText(_translate("ComputerStudiesQueuingSystem", "Accept"))
-        self.label_11.setText(_translate("ComputerStudiesQueuingSystem", "accounts page"))
+        self.label_13.setText(_translate("ComputerStudiesQueuingSystem", "  Account Details"))
+        self.label_14.setText(_translate("ComputerStudiesQueuingSystem", "NAME"))
+        self.label_15.setText(_translate("ComputerStudiesQueuingSystem", "COURSE"))
+        self.label_16.setText(_translate("ComputerStudiesQueuingSystem", "ID NUMBER"))
+        self.label_20.setText(_translate("ComputerStudiesQueuingSystem", "SCHOOL EMAIL"))
+        self.label_21.setText(_translate("ComputerStudiesQueuingSystem", "Name here"))
+        self.label_22.setText(_translate("ComputerStudiesQueuingSystem", "Course here"))
+        self.label_23.setText(_translate("ComputerStudiesQueuingSystem", "ID Number here"))
+        self.label_24.setText(_translate("ComputerStudiesQueuingSystem", "School Email here"))
         self.label_12.setText(_translate("ComputerStudiesQueuingSystem", "Settings"))
 import resource_rc
 
