@@ -516,13 +516,13 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.nextinline_slot2.setAlignment(QtCore.Qt.AlignCenter)
         self.nextinline_slot2.setObjectName("nextinline_slot2")
         self.horizontalLayout_17.addWidget(self.nextinline_slot2)
-        self.label_8 = QtWidgets.QLabel(self.frame_65)
-        self.label_8.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+        self.nextinline_slot3 = QtWidgets.QLabel(self.frame_65)
+        self.nextinline_slot3.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "font: 72pt \"Segoe UI\";\n"
 "border-radius: 20px")
-        self.label_8.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_8.setObjectName("label_8")
-        self.horizontalLayout_17.addWidget(self.label_8)
+        self.nextinline_slot3.setAlignment(QtCore.Qt.AlignCenter)
+        self.nextinline_slot3.setObjectName("nextinline_slot3")
+        self.horizontalLayout_17.addWidget(self.nextinline_slot3)
         self.verticalLayout_10.addWidget(self.frame_65)
         self.frame_66 = QtWidgets.QFrame(self.frame_69)
         self.frame_66.setMinimumSize(QtCore.QSize(0, 30))
@@ -1593,7 +1593,7 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.label_4.setText(_translate("ComputerStudiesQueuingSystem", "NOW SERVING"))
         self.nextinline_slot1.setText(_translate("ComputerStudiesQueuingSystem", "0"))
         self.nextinline_slot2.setText(_translate("ComputerStudiesQueuingSystem", "0"))
-        self.label_8.setText(_translate("ComputerStudiesQueuingSystem", "0"))
+        self.nextinline_slot3.setText(_translate("ComputerStudiesQueuingSystem", "0"))
         self.label_10.setText(_translate("ComputerStudiesQueuingSystem", "NEXT IN LINE"))
         self.label.setText(_translate("ComputerStudiesQueuingSystem", "        GET QUEUE NUMBER"))
         self.label_2.setText(_translate("ComputerStudiesQueuingSystem", "           SELECT PURPOSE HERE:"))

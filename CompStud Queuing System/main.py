@@ -6,6 +6,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QMessageBox, QPushButton
 from PyQt5.uic import loadUi
 from CSQueuingSystem import *
+import pymysql
 
 # GLOBAL VARIABLES FOR FRAMELESS WINDOW
 window_size = 0
@@ -43,8 +44,21 @@ class Login(QDialog):
 
     # FUNCTION FOR USER VERIFICATION
     def checkLogin(self):
+        '''
+        email = self.email_field.text()
+        password = self.passwordfield.text()
+        conn=pymysql.connect(host="localhost", user="root", password="", db="csqueuingsystemdb")
+        dur=conn.cursor()
+        query="select * from userinformation where email=%s and password=%s"
+        data = cur.execute(query,(email,password))
+        if (len(cur.fetchall()) > 0):
+        '''
         QtWidgets.QMessageBox.information(self, 'Success', 'Logged in successfully.')
         self.accept()
+        '''
+        else:
+            QtWidgets.QMessageBox.warning(self, 'Error', 'Incorrect email or password')
+        '''
 
     # SHOW REGISTER_PAGE
     def gotoRegister(self):
@@ -143,6 +157,11 @@ class CSQueue(QMainWindow):
 
         # QUEUE_PAGE BUTTON FUNCTIONALITY
         self.ui.enrollmentqueue_btn.clicked.connect(lambda: self.displayNum())
+        self.ui.clearancequeue_btn.clicked.connect(lambda: self.displayNum())
+        self.ui.academicsqueue_btn.clicked.connect(lambda: self.displayNum())
+        self.ui.organizationqueue_btn.clicked.connect(lambda: self.displayNum())
+        self.ui.regularlane_btn.clicked.connect(lambda: self.displayNum())
+        self.ui.facultylane_btn.clicked.connect(lambda: self.displayNum())
 
         # Accept Queue Button
         self.ui.acceptQueue_btn.clicked.connect(lambda: print("Accepted queue!"))
@@ -215,9 +234,16 @@ class CSQueue(QMainWindow):
         global number
         number = number + 1
         queue.append(number)
-        QtWidgets.QMessageBox.information(self, 'Success', 'Your priority number is 1')
-        self.ui.currentnum_display.setText(str(queue[0]))
+        if queue and len(queue) == 1:
+            QtWidgets.QMessageBox.information(self, 'Success', 'Your priority number is')
+            self.ui.currentnum_display.setText(str(queue[0]))
+        if queue and len(queue) == 2:
+            QtWidgets.QMessageBox.information(self, 'Success', 'Your priority number is')
+            self.ui.currentnum_display.setText(str(queue[0]))
+            self.ui.nextinline_slot1.setText(str(queue[1]))
         queue.pop()
+
+
 
 ######################################## MAIN MENU UI FUNCTIONALITIES ##################################################
 
