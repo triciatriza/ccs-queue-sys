@@ -44,21 +44,18 @@ class Login(QDialog):
 
     # FUNCTION FOR USER VERIFICATION
     def checkLogin(self):
-        '''
         email = self.email_field.text()
         password = self.passwordfield.text()
-        conn=pymysql.connect(host="localhost", user="root", password="", db="csqueuingsystemdb")
-        dur=conn.cursor()
-        query="select * from userinformation where email=%s and password=%s"
+        conn=pymysql.connect(host="My Database", user="root", password="1234", database="csqueuingsystemdb")
+        cur=conn.cursor()
+        query="select * from userinformation WHERE email=%s and password=%s"
         data = cur.execute(query,(email,password))
         if (len(cur.fetchall()) > 0):
-        '''
-        QtWidgets.QMessageBox.information(self, 'Success', 'Logged in successfully.')
-        self.accept()
-        '''
+            QtWidgets.QMessageBox.information(self, 'Success', 'Logged in successfully.')
+            self.accept()
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Incorrect email or password')
-        '''
+
 
     # SHOW REGISTER_PAGE
     def gotoRegister(self):
