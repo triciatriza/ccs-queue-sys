@@ -11,11 +11,6 @@ from CSQueuingSystem import *
 window_size = 0
 flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
 
-# GLOBAL VARIABLES FOR LOGIN_PAGE AND REGISTER_PAGE
-access = False
-user = ""
-userType = ""
-
 # GLOBAL VARIABLES FOR QUEUE_PAGE
 queue = []
 number = 0
@@ -48,25 +43,8 @@ class Login(QDialog):
 
     # FUNCTION FOR USER VERIFICATION
     def checkLogin(self):
-        global access
-        global user
-        global userType
-        access = False
-        idnum = self.IDnumber_field.text()
-        password = self.password_field.text()
-        file = open("accounts.txt", "r")
-        for i in file:
-            a, b, c, d, e, f, g, h = i.split(",")
-            h = h.strip()
-            if(idnum == d and password == g):
-                access = True
-                userType = h
-                QtWidgets.QMessageBox.information(self, 'Success', 'Logged in successfully.')
-                self.accept()
-                break
-        file.close()
-        if access is False:
-            QtWidgets.QMessageBox.warning(self, 'Error', 'Incorrect username or password')
+        QtWidgets.QMessageBox.information(self, 'Success', 'Logged in successfully.')
+        self.accept()
 
     # SHOW REGISTER_PAGE
     def gotoRegister(self):

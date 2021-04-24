@@ -502,20 +502,20 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.horizontalLayout_17.setContentsMargins(30, 30, 30, 10)
         self.horizontalLayout_17.setSpacing(25)
         self.horizontalLayout_17.setObjectName("horizontalLayout_17")
-        self.label_6 = QtWidgets.QLabel(self.frame_65)
-        self.label_6.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+        self.nextinline_slot1 = QtWidgets.QLabel(self.frame_65)
+        self.nextinline_slot1.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "font: 72pt \"Segoe UI\";\n"
 "border-radius: 20px")
-        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_6.setObjectName("label_6")
-        self.horizontalLayout_17.addWidget(self.label_6)
-        self.label_7 = QtWidgets.QLabel(self.frame_65)
-        self.label_7.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+        self.nextinline_slot1.setAlignment(QtCore.Qt.AlignCenter)
+        self.nextinline_slot1.setObjectName("nextinline_slot1")
+        self.horizontalLayout_17.addWidget(self.nextinline_slot1)
+        self.nextinline_slot2 = QtWidgets.QLabel(self.frame_65)
+        self.nextinline_slot2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "font: 72pt \"Segoe UI\";\n"
 "border-radius: 20px")
-        self.label_7.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_7.setObjectName("label_7")
-        self.horizontalLayout_17.addWidget(self.label_7)
+        self.nextinline_slot2.setAlignment(QtCore.Qt.AlignCenter)
+        self.nextinline_slot2.setObjectName("nextinline_slot2")
+        self.horizontalLayout_17.addWidget(self.nextinline_slot2)
         self.label_8 = QtWidgets.QLabel(self.frame_65)
         self.label_8.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "font: 72pt \"Segoe UI\";\n"
@@ -1572,7 +1572,7 @@ class Ui_ComputerStudiesQueuingSystem(object):
         ComputerStudiesQueuingSystem.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(ComputerStudiesQueuingSystem)
-        self.stackedWidget.setCurrentIndex(9)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(ComputerStudiesQueuingSystem)
 
     def retranslateUi(self, ComputerStudiesQueuingSystem):
@@ -1591,8 +1591,8 @@ class Ui_ComputerStudiesQueuingSystem(object):
         self.label_3.setText(_translate("ComputerStudiesQueuingSystem", "Queue"))
         self.currentnum_display.setText(_translate("ComputerStudiesQueuingSystem", "0"))
         self.label_4.setText(_translate("ComputerStudiesQueuingSystem", "NOW SERVING"))
-        self.label_6.setText(_translate("ComputerStudiesQueuingSystem", "0"))
-        self.label_7.setText(_translate("ComputerStudiesQueuingSystem", "0"))
+        self.nextinline_slot1.setText(_translate("ComputerStudiesQueuingSystem", "0"))
+        self.nextinline_slot2.setText(_translate("ComputerStudiesQueuingSystem", "0"))
         self.label_8.setText(_translate("ComputerStudiesQueuingSystem", "0"))
         self.label_10.setText(_translate("ComputerStudiesQueuingSystem", "NEXT IN LINE"))
         self.label.setText(_translate("ComputerStudiesQueuingSystem", "        GET QUEUE NUMBER"))
