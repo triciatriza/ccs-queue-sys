@@ -6,7 +6,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QMessageBox, QPushButton
 from PyQt5.uic import loadUi
 from CSQueuingSystem import *
-import pymysql
+import mysql.connector
 
 # GLOBAL VARIABLES FOR FRAMELESS WINDOW
 window_size = 0
@@ -25,6 +25,14 @@ appointments = [{}]
 # GLOBAL VARIABLES FOR SCHOLARQUESTS_PAGE
 quests = [{"Title": "", "Date and Time": "", "Duration": "", "Points": "", "Description": ""}]
 
+db = mysql.connector.connect(
+        host = "localhost",
+        user = "root",
+        password = "root",
+        database = "ccs-queue-sys"
+    )
+
+cursor = db.cursor()
 
 # MESSAGEBOX FUNCTION FOR SHOWING ERROR
 def showError(title, text):
@@ -45,16 +53,16 @@ class Login(QDialog):
     # FUNCTION FOR USER VERIFICATION
     def checkLogin(self):
         email = self.email_field.text()
-        password = self.passwordfield.text()
-        conn=pymysql.connect(host="My Database", user="root", password="1234", database="csqueuingsystemdb")
-        cur=conn.cursor()
-        query="select * from userinformation WHERE email=%s and password=%s"
-        data = cur.execute(query,(email,password))
-        if (len(cur.fetchall()) > 0):
+        password = self.password_field.text()
+        cursor.execute("SELECT * FROM user WHERE email = %s and password = %s", (email, password))
+        result = cursor.fetchone()
+
+        if result != None:
             QtWidgets.QMessageBox.information(self, 'Success', 'Logged in successfully.')
             self.accept()
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Incorrect email or password')
+    
 
 
     # SHOW REGISTER_PAGE
@@ -79,25 +87,16 @@ class Register(QDialog):
     # FUNCTION TO CHECK IF AN ACCOUNT EXISTS
     def checkUser(self):
         userExists = False
-        firstname = self.firstname_field.text()
-        middlename = self.middlename_field.text()
-        lastname = self.lastname_field.text()
-        idnum = self.IDnumber_field.text()
         email = self.email_field.text()
-        course_type = self.course_comboBox.currentText()
-        password = self.password_field.text()
-        confirmpass = self.confirmpass_field.text()
 
-        file = open("accounts.txt", "r")
+        cmd = "SELECT * FROM user WHERE email = %s"
+        query = (email, )
+        cursor.execute(cmd, query)
+        result = cursor.fetchall()
 
-        for i in file:
-            a, b, c, d, e, f, g, h= i.split(",")
-            h = h.strip()
-            if idnum == d:
-                file.close
-                QtWidgets.QMessageBox.warning(self, 'Error', 'Account already exists!')
-                exists = True
-                break
+        if len(result) > 0:
+            QtWidgets.QMessageBox.warning(self, 'Error', 'Account already exists!')
+            userExists = True
 
         return userExists
 
@@ -113,16 +112,21 @@ class Register(QDialog):
         password = self.password_field.text()
         confirmpass = self.confirmpass_field.text()
 
+        #cursor.execute("SELECT * FROM user WHERE email = %s and password = %s", (email, password))
+        #result = cursor.fetchone()
+
         if (self.checkUser() == False):
-            if (password == confirmpass):
-                file =open("accounts.txt", "a")
-                file.write("\n"+ firstname + "," + middlename + "," + lastname + "," + idnum + "," + email + "," + course_type + "," + password + "," + "student")
-                file.close
+            if (confirmpass == password):
+                cursor.execute("INSERT INTO user (email, password, first_name, middle_name, last_name) VALUES (%s, %s, %s, %s, %s)", (email, password, firstname, middlename, lastname))
+                cursor.execute("INSERT INTO user_student (student_id, email, course) VALUES (%s, %s, %s)", (idnum, email, course_type))
+                db.commit()
                 access = True
                 QtWidgets.QMessageBox.information(self, 'Success', 'Registered successfully.')
                 self.close()
             else:
                 QtWidgets.QMessageBox.warning(self, 'Error', "Password doesn't match")
+            
+            
 
 
 # CSQUEUEINGSYSTEM CLASS (MAIN WINDOW)
@@ -144,7 +148,7 @@ class CSQueue(QMainWindow):
         # fUNCTION FOR TOGGLE MENU BUTTONS
         self.ui.Btn_Toggle.clicked.connect(lambda: self.slide_leftmenu())
         self.ui.queue_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.queue_page))
-        self.ui.roomreservation_button.clicked.connect(lambda: self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table, reservations))
+        self.ui.roomreservation_button.clicked.connect(lambda: self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table))
         self.ui.appointment_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.appointment_page))
         self.ui.scholarquests_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.scholarquests_page))
         self.ui.account_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.account_page))
@@ -173,7 +177,7 @@ class CSQueue(QMainWindow):
 
         # Set Reservation Page Buttons
         self.ui.setRsv_btn.clicked.connect(lambda: self.setReservations(self.ui.rsv_table, reservations))
-        self.ui.cancelRsv_btn.clicked.connect(lambda: self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table, reservations))
+        self.ui.cancelRsv_btn.clicked.connect(lambda: self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table))
 
         # Appointment Page Buttons
         self.ui.tp_chkApt_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.checkappointment_page))
@@ -214,6 +218,22 @@ class CSQueue(QMainWindow):
             table.setItem(row, 3, QtWidgets.QTableWidgetItem(x["Reason"]))
             row = row + 1
     
+    def loadReservations(self, page, table):
+        self.ui.stackedWidget.setCurrentWidget(page)
+        cmd = "SELECT date_time, room_id, state, reason FROM reservation"
+        cursor.execute(cmd)
+        result = cursor.fetchall()
+        
+        # use this to understand the incoming data better
+        for x in result:
+            print(x)
+
+        for row_number, row_data in enumerate(result):
+            for column_number, data in enumerate(row_data):
+                table.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str((data))))
+        
+        
+
     def setReservations(self, table, data):
         dateTime = self.ui.dtRsv.text()
         index = self.ui.roomRsv.currentIndex()
