@@ -825,11 +825,7 @@ QPushButton:focus{
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-<<<<<<< HEAD
-          <number>4</number>
-=======
-          <number>9</number>
->>>>>>> 9c8e0c1a1d13e4df4cb925fb4d42d64866ed36fd
+          <number>0</number>
          </property>
          <widget class="QWidget" name="queue_page">
           <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1180,7 +1176,7 @@ color: rgb(0, 58, 108);</string>
                         <number>10</number>
                        </property>
                        <item>
-                        <widget class="QLabel" name="label_6">
+                        <widget class="QLabel" name="nextinline_slot1">
                          <property name="styleSheet">
                           <string notr="true">background-color: rgb(255, 255, 255);
 font: 72pt &quot;Segoe UI&quot;;
@@ -1195,7 +1191,7 @@ border-radius: 20px</string>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="label_7">
+                        <widget class="QLabel" name="nextinline_slot2">
                          <property name="styleSheet">
                           <string notr="true">background-color: rgb(255, 255, 255);
 font: 72pt &quot;Segoe UI&quot;;
@@ -2240,8 +2236,8 @@ QPushButton:pressed{
          </widget>
          <widget class="QWidget" name="setreservation_page">
           <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="0">
-            <widget class="QFrame" name="frame_20">
+           <item row="2" column="0">
+            <widget class="QFrame" name="frame_21">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -2269,7 +2265,7 @@ QPushButton:pressed{
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>310</width>
+                  <width>300</width>
                   <height>0</height>
                  </size>
                 </property>
@@ -2383,7 +2379,7 @@ QPushButton:pressed{
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>310</width>
+                  <width>300</width>
                   <height>0</height>
                  </size>
                 </property>
@@ -2398,8 +2394,8 @@ QPushButton:pressed{
              </layout>
             </widget>
            </item>
-           <item row="2" column="0">
-            <widget class="QFrame" name="frame_21">
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_20">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
