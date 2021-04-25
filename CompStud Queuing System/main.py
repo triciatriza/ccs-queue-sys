@@ -131,10 +131,10 @@ class Register(QDialog):
 
 
 # CSQUEUEINGSYSTEM CLASS (MAIN WINDOW)
-class CSQueue(QMainWindow):
+class CSQueue_Student(QMainWindow):
     def __init__(self, parent=None):
-        super(CSQueue, self).__init__(parent)
-        self.ui = Ui_ComputerStudiesQueuingSystem()
+        super(CSQueue_Student, self).__init__(parent)
+        self.ui = Ui_ccsqueue_student()
         self.ui.setupUi(self)
 
         # FRAMELESS WINNDOW
@@ -165,16 +165,8 @@ class CSQueue(QMainWindow):
         self.ui.regularlane_btn.clicked.connect(lambda: self.displayNum())
         self.ui.facultylane_btn.clicked.connect(lambda: self.displayNum())
 
-        # Accept Queue Button
-        self.ui.acceptQueue_btn.clicked.connect(lambda: print("Accepted queue!"))
-
         # Room Reservation Page Buttons
         self.ui.tp_setRsv_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.setreservation_page))
-
-        # Check Reservation Page Buttons
-        self.ui.backRsv_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.roomreservation_page))
-        self.ui.acceptRsv_btn.clicked.connect(lambda: print("Accepted reservation!"))
-        self.ui.declineRsv_btn.clicked.connect(lambda: print("Declined reservation!"))
 
         # Set Reservation Page Buttons
         self.ui.setRsv_btn.clicked.connect(lambda: self.setReservations(self.ui.rsv_table, reservations))
@@ -183,11 +175,6 @@ class CSQueue(QMainWindow):
         # Appointment Page Buttons
         self.ui.tp_chkApt_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.checkappointment_page))
         self.ui.tp_setApt_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.appointment_page))
-
-        # Check Appointment Page Buttons
-        self.ui.backApt_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.appointment_page))
-        self.ui.acceptApt_btn.clicked.connect(lambda: print("Accepted appointment!"))
-        self.ui.declineApt_btn.clicked.connect(lambda: print("Declined appointment!"))
 
         # Quests Page Buttons
         self.ui.tp_acceptQuest_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.acceptquests_page))
@@ -311,6 +298,6 @@ if __name__ == "__main__":
     login = Login()
 
     if login.exec_() == QtWidgets.QDialog.Accepted:
-        window = CSQueue()
+        window = CSQueue_Student()
         window.show()
         sys.exit(app.exec_())
