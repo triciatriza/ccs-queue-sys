@@ -646,7 +646,7 @@ QPushButton:focus{
               <widget class="QPushButton" name="appointment_button">
                <property name="minimumSize">
                 <size>
-                 <width>200</width>
+                 <width>205</width>
                  <height>0</height>
                 </size>
                </property>
@@ -663,7 +663,7 @@ QPushButton:focus{
                 <string notr="true">QPushButton{
 	background-image: url(:/icons/icons/cil-pencil.png);
 	background-repeat:none;
-	padding-left:52px;
+	padding-left: 52px;
 	background-position: center left;
 	font: 75 9pt &quot;Century Gothic&quot;;
 }
