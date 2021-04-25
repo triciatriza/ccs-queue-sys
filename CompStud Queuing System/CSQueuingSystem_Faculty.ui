@@ -2673,7 +2673,7 @@ QPushButton:pressed{
                 </property>
                 <layout class="QGridLayout" name="gridLayout_8">
                  <item row="0" column="0">
-                  <widget class="QPushButton" name="tp_acceptQuest_btn">
+                  <widget class="QPushButton" name="tp_setQuest_btn">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -2831,7 +2831,7 @@ QPushButton:pressed{
                 </property>
                 <layout class="QGridLayout" name="gridLayout_10">
                  <item row="0" column="0">
-                  <widget class="QPushButton" name="acceptQuest_btn">
+                  <widget class="QPushButton" name="setQuest_btn">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                      <horstretch>0</horstretch>

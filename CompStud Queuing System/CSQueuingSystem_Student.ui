@@ -825,7 +825,7 @@ QPushButton:focus{
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>6</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="queue_page">
           <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1871,7 +1871,7 @@ QPushButton:pressed{
           </layout>
          </widget>
          <widget class="QWidget" name="setreservation_page">
-          <layout class="QVBoxLayout" name="verticalLayout_19">
+          <layout class="QVBoxLayout" name="verticalLayout_18">
            <item>
             <widget class="QFrame" name="frame_20">
              <property name="frameShape">
@@ -2154,9 +2154,9 @@ QPushButton:pressed{
           </layout>
          </widget>
          <widget class="QWidget" name="setappointment_page">
-          <layout class="QVBoxLayout" name="verticalLayout_18">
+          <layout class="QVBoxLayout" name="verticalLayout_17">
            <item>
-            <widget class="QFrame" name="frame_32">
+            <widget class="QFrame" name="frame_29">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -2166,7 +2166,7 @@ QPushButton:pressed{
             </widget>
            </item>
            <item>
-            <widget class="QFrame" name="frame_29">
+            <widget class="QFrame" name="frame_31">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -2175,7 +2175,7 @@ QPushButton:pressed{
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_16">
               <item>
-               <widget class="QFrame" name="frame_30">
+               <widget class="QFrame" name="frame_32">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -2240,37 +2240,37 @@ QPushButton:pressed{
                      <number>16</number>
                     </property>
                     <item>
-                     <widget class="QDateTimeEdit" name="dtRsv_2"/>
+                     <widget class="QDateTimeEdit" name="dtApt"/>
                     </item>
                     <item>
-                     <widget class="QComboBox" name="roomRsv_2">
+                     <widget class="QComboBox" name="instructorApt">
                       <property name="currentText">
-                       <string>Ms. Meldie Apag</string>
+                       <string>Meldie Apag</string>
                       </property>
                       <item>
                        <property name="text">
-                        <string>Ms. Meldie Apag</string>
+                        <string>Meldie Apag</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>Mr. Jun Rangie Obispo</string>
+                        <string>Jun Rangie Obispo</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>Mr. Patrick Marlowe Oliva</string>
+                        <string>Patrick Marlowe Oliva</string>
                        </property>
                       </item>
                       <item>
                        <property name="text">
-                        <string>Mr. Jordan Canete</string>
+                        <string>Jordan Canete</string>
                        </property>
                       </item>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="reasonRsv_2"/>
+                     <widget class="QLineEdit" name="reasonApt"/>
                     </item>
                    </layout>
                   </item>
@@ -2279,21 +2279,21 @@ QPushButton:pressed{
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_24">
                   <item>
-                   <widget class="QCheckBox" name="confirmRsv_2">
+                   <widget class="QCheckBox" name="confirmApt_btn">
                     <property name="text">
                      <string>Confirm your choices</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="setRsv_btn_2">
+                   <widget class="QPushButton" name="setApt_btn">
                     <property name="text">
                      <string>Set</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="cancelRsv_btn_2">
+                   <widget class="QPushButton" name="cancelApt_btn">
                     <property name="text">
                      <string>Cancel</string>
                     </property>
@@ -2304,7 +2304,7 @@ QPushButton:pressed{
                </layout>
               </item>
               <item>
-               <widget class="QFrame" name="frame_31">
+               <widget class="QFrame" name="frame_33">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -2329,7 +2329,7 @@ QPushButton:pressed{
             </widget>
            </item>
            <item>
-            <widget class="QFrame" name="frame_33">
+            <widget class="QFrame" name="frame_30">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -3018,7 +3018,7 @@ color: rgb(0, 58, 108);</string>
           </layout>
          </widget>
          <widget class="QWidget" name="settings_page">
-          <layout class="QVBoxLayout" name="verticalLayout_17">
+          <layout class="QHBoxLayout" name="horizontalLayout_34">
            <item>
             <widget class="QLabel" name="label_12">
              <property name="styleSheet">
