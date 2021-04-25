@@ -10,6 +10,9 @@ from CSQueuingSystem_Faculty import *
 from CSQueuingSystem_Admin import *
 import mysql.connector
 
+
+type = ""
+
 # GLOBAL VARIABLES FOR FRAMELESS WINDOW
 window_size = 0
 flags = QtCore.Qt.WindowFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowStaysOnTopHint)
@@ -31,7 +34,7 @@ quests = [{"Title": "", "Date and Time": "", "Duration": "", "Points": "", "Desc
 db = mysql.connector.connect(
         host = "localhost",
         user = "root",
-        password = "root",
+        password = "Pass_1234",
         database = "ccs-queue-sys"
     )
 
@@ -60,17 +63,22 @@ class Login(QDialog):
 
     # FUNCTION FOR USER VERIFICATION
     def checkLogin(self):
-        global id
+        global id, type
         email = self.email_field.text()
         password = self.password_field.text()
         cursor.execute("SELECT * FROM user WHERE email = %s and password = %s", (email, password))
         result = cursor.fetchone()
 
         if result != None:
-            QtWidgets.QMessageBox.information(self, 'Success', 'Logged in successfully.')
             id = email.split("@")[0]
-            print(id)
-            self.accept()
+            if len(id) == 7:
+                QtWidgets.QMessageBox.information(self, 'Success', 'Logged in successfully.')
+                type = "faculty"
+                self.accept()
+            elif len(id) == 11:
+                QtWidgets.QMessageBox.information(self, 'Success', 'Logged in successfully.')
+                type = "student"
+                self.accept()
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Incorrect email or password')
 
@@ -137,7 +145,7 @@ class Register(QDialog):
                 QtWidgets.QMessageBox.warning(self, 'Error', "Password doesn't match")
 
 
-# CSQUEUEINGSYSTEM CLASS (MAIN WINDOW)
+# CSQUEUEINGSYSTEM CLASS STUDENT (MAIN WINDOW)
 class CSQueue_Student(QMainWindow):
     def __init__(self, parent=None):
         super(CSQueue_Student, self).__init__(parent)
@@ -389,8 +397,76 @@ class CSQueue_Student(QMainWindow):
         self.clickPosition = event.globalPos()
 
     def logOut(self):
-        self.reject()
+        login = Login()
+        login.show()
+        self.close()
 
+# CSQUEUEINGSYSTEM CLASS FACULTY (MAIN WINDOW)
+class CSQueue_Faculty(QMainWindow):
+    def __init__(self, parent=None):
+        super(CSQueue_Faculty, self).__init__(parent)
+        self.ui = Ui_ccsqueue_faculty()
+        self.ui.setupUi(self)
+
+        # FRAMELESS WINNDOW
+        self.setWindowFlags(flags)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+        # FUNCTIONALITIES FOR WINDOW BUTTONS (MINIMIZE/MAZIMIZE, RESTORE, CLOSE)
+        self.ui.minimize_btn.clicked.connect(lambda: self.showMinimized())
+        self.ui.maximize_btn.clicked.connect(lambda: self.restore_or_maximize_window())
+        self.ui.close_btn.clicked.connect(lambda: self.close())
+
+        # fUNCTION FOR TOGGLE MENU BUTTONS
+        self.ui.Btn_Toggle.clicked.connect(lambda: self.slide_leftmenu())
+
+        # FUNCTION FOR MOVABLE WINDOW
+        def moveWindow(e):
+            if self.isMaximized() == False:
+                if e.buttons() == Qt.LeftButton:
+                    self.move(self.pos() + e.globalPos() - self.clickPosition)
+                    self.clickPosition = e.globalPos()
+                    e.accept()
+
+        # CALL moveWindow FUNCTION
+        self.ui.top_bar.mouseMoveEvent = moveWindow
+
+        self.show()
+
+    # FUNCTION CONNECTED TO moveWindow
+    def mousePressEvent(self, event):
+        self.clickPosition = event.globalPos()
+
+        # ANIMATION FOR TOGGLE MENU
+        def slide_leftmenu(self):
+            width = self.ui.frame_left_menu.width()
+
+            if width == 70:
+                newwidth = 225
+            else:
+                newwidth = 70
+
+            self.animation = QPropertyAnimation(self.ui.frame_left_menu, b"minimumWidth")
+            self.animation.setDuration(250)
+            self.animation.setStartValue(width)
+            self.animation.setEndValue(newwidth)
+            self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animation.start()
+
+        # FUNCTION FOR RESTORING/MAXIMIZING WINDOW
+        def restore_or_maximize_window(self):
+            global window_size
+            window_status = window_size
+
+            if window_status == 0:  # IF WINDOW IS MAXIMIZED
+                window_size = 1
+                self.showMaximized()
+                self.ui.maximize_btn.setIcon(QtGui.QIcon(u":/icons/icons/cil-window-restore.png"))
+                self.ui.maximize_btn.setToolTip("Restore")
+            else:  # IF WINDOW IS RESTORED
+                window_size = 0
+                self.showNormal()
+                self.ui.maximize_btn.setIcon(QtGui.QIcon(u":icons/icons/cil-window-maximize.png"))
 
 
 # APPLICATION EXECUTION
@@ -401,9 +477,9 @@ if __name__ == "__main__":
 
 
     if login.exec_() == QtWidgets.QDialog.Accepted:
-        window = CSQueue_Student()
+        if type == "student":
+            window = CSQueue_Student()
+        elif type == "faculty":
+            window = CSQueue_Faculty()
         window.show()
-        print("text")
         sys.exit(app.exec_())
-
-
