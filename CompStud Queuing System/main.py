@@ -205,6 +205,22 @@ class CSQueue(QMainWindow):
 
         self.show()
 
+    # FUNCTION FOR QUEUE_PAGE
+    def displayNum(self):
+        global number
+        number = number + 1
+        queue.append(number)
+        if queue and len(queue) == 1:
+            QtWidgets.QMessageBox.information(self, 'Success', 'Your priority number is')
+            self.ui.currentnum_display.setText(str(queue[0]))
+        if queue and len(queue) == 2:
+            QtWidgets.QMessageBox.information(self, 'Success', 'Your priority number is')
+            self.ui.currentnum_display.setText(str(queue[0]))
+            self.ui.nextinline_slot1.setText(str(queue[1]))
+        queue.pop()
+
+
+    # RSV_TABLE IN RESERVATION_PAGE
     def loadReservations(self, page, table, data):
         self.ui.stackedWidget.setCurrentWidget(page)
         row = 0
@@ -216,7 +232,7 @@ class CSQueue(QMainWindow):
             table.setItem(row, 2, QtWidgets.QTableWidgetItem(x["State"]))
             table.setItem(row, 3, QtWidgets.QTableWidgetItem(x["Reason"]))
             row = row + 1
-    
+
     def loadReservations(self, page, table):
         self.ui.stackedWidget.setCurrentWidget(page)
 
@@ -234,7 +250,6 @@ class CSQueue(QMainWindow):
             for column_number, data in enumerate(row_data):
                 self.ui.rsv_table.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str((data))))
 
-
     def setReservations(self, table, data):
         dateTime = self.ui.dtRsv.text()
         index = self.ui.roomRsv.currentIndex()
@@ -246,20 +261,6 @@ class CSQueue(QMainWindow):
             self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table, reservations)
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
-
-    # FUNCTION FOR QUEUE_PAGE
-    def displayNum(self):
-        global number
-        number = number + 1
-        queue.append(number)
-        if queue and len(queue) == 1:
-            QtWidgets.QMessageBox.information(self, 'Success', 'Your priority number is')
-            self.ui.currentnum_display.setText(str(queue[0]))
-        if queue and len(queue) == 2:
-            QtWidgets.QMessageBox.information(self, 'Success', 'Your priority number is')
-            self.ui.currentnum_display.setText(str(queue[0]))
-            self.ui.nextinline_slot1.setText(str(queue[1]))
-        queue.pop()
 
 
 
