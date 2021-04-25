@@ -201,7 +201,6 @@ class CSQueue_Student(QMainWindow):
 
         self.show()
 
-<<<<<<< Updated upstream
     # FUNCTION FOR QUEUE_PAGE
     def displayNum(self):
         global number
@@ -218,10 +217,10 @@ class CSQueue_Student(QMainWindow):
 
 
     # RSV_TABLE IN RESERVATION_PAGE
+    #def loadReservations(self, page, table, data):
+    '''
     def loadReservations(self, page, table, data):
-=======
-    """def loadReservations(self, page, table, data):
->>>>>>> Stashed changes
+
         self.ui.stackedWidget.setCurrentWidget(page)
         row = 0
         keys = len(data[0].keys())
@@ -231,13 +230,13 @@ class CSQueue_Student(QMainWindow):
             table.setItem(row, 1, QtWidgets.QTableWidgetItem(x["Room"]))
             table.setItem(row, 2, QtWidgets.QTableWidgetItem(x["State"]))
             table.setItem(row, 3, QtWidgets.QTableWidgetItem(x["Reason"]))
-<<<<<<< Updated upstream
+
             row = row + 1
 
-=======
-            row = row + 1"""
+            row = row + 1
+        '''
     
->>>>>>> Stashed changes
+
     def loadReservations(self, page, table):
         global id
         self.ui.stackedWidget.setCurrentWidget(page)
