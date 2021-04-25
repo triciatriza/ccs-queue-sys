@@ -10,7 +10,9 @@ from CSQueuingSystem_Faculty import *
 from CSQueuingSystem_Admin import *
 import mysql.connector
 
+################################################### GLOBAL VARIABLES ######################################################
 
+# USER TYPE VARIABLE
 type = ""
 
 # GLOBAL VARIABLES FOR FRAMELESS WINDOW
@@ -52,14 +54,7 @@ id = ""
 # DATABASE CURSOR
 cursor = db.cursor()
 
-# MESSAGEBOX FUNCTION FOR SHOWING ERROR
-def showError(title, text):
-    msg = QMessageBox()
-    msg.setWindowTitle(title)
-    msg.setText(text)
-    msg.setIcon(QMessageBox.Critical)
-    msg.exec_()
-
+################################################## LOGIN PAGE ###########################################################
 
 # LOGIN_PAGE CLASS
 class Login(QDialog):
@@ -97,6 +92,7 @@ class Login(QDialog):
         login.close()
         regWindow.show()
 
+############################################### REGISTER PAGE #################################################################
 
 # REGISTER_PAGE CLASS
 class Register(QDialog):
@@ -153,6 +149,8 @@ class Register(QDialog):
                 QtWidgets.QMessageBox.warning(self, 'Error', "Password doesn't match")
 
 
+######################################### CSQUEUEINGSYSTEM STUDENT #############################################################
+
 # CSQUEUEINGSYSTEM CLASS STUDENT (MAIN WINDOW)
 class CSQueue_Student(QMainWindow):
     def __init__(self, parent=None):
@@ -178,7 +176,7 @@ class CSQueue_Student(QMainWindow):
         self.ui.account_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.account_page))
         self.ui.logout_btn.clicked.connect(lambda: self.logOut())
 
-########################################## CONTENT BUTTONS #########################################################
+################################### CSQUEUEINGSYSTEM STUDENT CONTENT BUTTONS #################################################################
 
         # QUEUE_PAGE BUTTON FUNCTIONALITY
         self.ui.enrollmentqueue_btn.clicked.connect(lambda: self.displayNum())
@@ -234,27 +232,6 @@ class CSQueue_Student(QMainWindow):
             self.ui.currentnum_display.setText(str(queue[0]))
             self.ui.nextinline_slot1.setText(str(queue[1]))
         queue.pop()
-
-
-    # RSV_TABLE IN RESERVATION_PAGE
-    #def loadReservations(self, page, table, data):
-    '''
-    def loadReservations(self, page, table, data):
-
-        self.ui.stackedWidget.setCurrentWidget(page)
-        row = 0
-        keys = len(data[0].keys())
-        table.setRowCount(len(data))
-        for x in reservations:
-            table.setItem(row, 0, QtWidgets.QTableWidgetItem(x["Date and Time"]))
-            table.setItem(row, 1, QtWidgets.QTableWidgetItem(x["Room"]))
-            table.setItem(row, 2, QtWidgets.QTableWidgetItem(x["State"]))
-            table.setItem(row, 3, QtWidgets.QTableWidgetItem(x["Reason"]))
-
-            row = row + 1
-
-            row = row + 1
-        '''
     
 
     def loadReservations(self, page, table):
@@ -365,9 +342,7 @@ class CSQueue_Student(QMainWindow):
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
 
-
-
-######################################## MAIN MENU UI FUNCTIONALITIES ##################################################
+################################ CSQUEUEINGSYSTEM STUDENT BASE UI FUNCTIONALITIES ##################################################
 
     # ANIMATION FOR TOGGLE MENU
     def slide_leftmenu(self):
@@ -408,6 +383,8 @@ class CSQueue_Student(QMainWindow):
         login = Login()
         login.show()
         self.close()
+
+######################################## CSQUEUEINGSYSTEM FACULTY ######################################################
 
 # CSQUEUEINGSYSTEM CLASS FACULTY (MAIN WINDOW)
 class CSQueue_Faculty(QMainWindow):
