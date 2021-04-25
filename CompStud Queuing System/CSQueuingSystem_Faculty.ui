@@ -825,7 +825,7 @@ QPushButton:focus{
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>5</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="checkqueue_page">
           <layout class="QGridLayout" name="gridLayout_13">
@@ -1025,11 +1025,6 @@ QPushButton:focus{
              <attribute name="verticalHeaderStretchLastSection">
               <bool>false</bool>
              </attribute>
-             <column>
-              <property name="text">
-               <string>Date of Request</string>
-              </property>
-             </column>
              <column>
               <property name="text">
                <string>Date and Time</string>
