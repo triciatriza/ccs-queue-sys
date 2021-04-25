@@ -1,7 +1,7 @@
 import sys
 import platform
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt, QPoint, QPropertyAnimation
+from PyQt5.QtCore import Qt, QPoint, QPropertyAnimation, QDateTime
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QMessageBox, QPushButton
 from PyQt5.uic import loadUi
@@ -31,9 +31,13 @@ quests = [{"Title": "", "Date and Time": "", "Duration": "", "Points": "", "Desc
 db = mysql.connector.connect(
         host = "localhost",
         user = "root",
-        password = "Pass_1234",
+        password = "root",
         database = "ccs-queue-sys"
     )
+
+# USER
+id = ""
+
 # DATABASE CURSOR
 cursor = db.cursor()
 
@@ -56,6 +60,7 @@ class Login(QDialog):
 
     # FUNCTION FOR USER VERIFICATION
     def checkLogin(self):
+        global id
         email = self.email_field.text()
         password = self.password_field.text()
         cursor.execute("SELECT * FROM user WHERE email = %s and password = %s", (email, password))
@@ -63,6 +68,8 @@ class Login(QDialog):
 
         if result != None:
             QtWidgets.QMessageBox.information(self, 'Success', 'Logged in successfully.')
+            id = email.split("@")[0]
+            print(id)
             self.accept()
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Incorrect email or password')
@@ -194,6 +201,7 @@ class CSQueue_Student(QMainWindow):
 
         self.show()
 
+<<<<<<< Updated upstream
     # FUNCTION FOR QUEUE_PAGE
     def displayNum(self):
         global number
@@ -211,6 +219,9 @@ class CSQueue_Student(QMainWindow):
 
     # RSV_TABLE IN RESERVATION_PAGE
     def loadReservations(self, page, table, data):
+=======
+    """def loadReservations(self, page, table, data):
+>>>>>>> Stashed changes
         self.ui.stackedWidget.setCurrentWidget(page)
         row = 0
         keys = len(data[0].keys())
@@ -220,34 +231,50 @@ class CSQueue_Student(QMainWindow):
             table.setItem(row, 1, QtWidgets.QTableWidgetItem(x["Room"]))
             table.setItem(row, 2, QtWidgets.QTableWidgetItem(x["State"]))
             table.setItem(row, 3, QtWidgets.QTableWidgetItem(x["Reason"]))
+<<<<<<< Updated upstream
             row = row + 1
 
+=======
+            row = row + 1"""
+    
+>>>>>>> Stashed changes
     def loadReservations(self, page, table):
+        global id
         self.ui.stackedWidget.setCurrentWidget(page)
+        print(id)
 
-        cmd = "SELECT date_time, room_id, state, reason FROM reservation"
-        cursor.execute(cmd)
-        result = cursor.fetchall()
-        self.ui.rsv_table.setRowCount(0)
-        
-        # use this to understand the incoming data better
-        for x in result:
-            print(x)
-
-        for row_number, row_data in enumerate(result):
-            self.ui.rsv_table.insertRow(row_number)
-            for column_number, data in enumerate(row_data):
-                self.ui.rsv_table.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str((data))))
+        try:
+            cmd = "SELECT date_time, room_id, state, reason FROM reservation where student_id = %s"
+            query = (id, )
+            cursor.execute(cmd, user)
+            result = cursor.fetchall()
+        except:
+            print("Can't load data from student!")
+            cmd = "SELECT date_time, room_id, state, reason FROM reservation"
+            cursor.execute(cmd)
+            result = cursor.fetchall()
+        finally:
+            table.setRowCount(0)
+            for row_number, row_data in enumerate(result):
+                table.insertRow(row_number)
+                for column_number, data in enumerate(row_data):
+                    table.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str((data))))
+                
+                if row_number == 4:
+                    break
 
     def setReservations(self, table, data):
+        global id
         dateTime = self.ui.dtRsv.text()
         index = self.ui.roomRsv.currentIndex()
         room = self.ui.roomRsv.itemText(index)
         reason = self.ui.reasonRsv.text()
 
         if self.ui.confirmRsv.isChecked():
-            data.append({"Date and Time": dateTime, "Room": room, "State": "PENDING", "Reason": reason})
-            self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table, reservations)
+            cursor.execute("INSERT INTO reservation (room_id, student_id, date_time, reason) VALUES (%s, %s, %s, %s)", (room, id, dateTime, reason))
+            db.commit()
+            QtWidgets.QMessageBox.information(self, 'Success', 'Registered successfully.')
+            self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table)
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
 
