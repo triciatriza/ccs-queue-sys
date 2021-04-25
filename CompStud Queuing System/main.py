@@ -31,7 +31,15 @@ appointments = [{}]
 quests = [{"Title": "", "Date and Time": "", "Duration": "", "Points": "", "Description": ""}]
 
 # DATABASE CONNECTION
-db = mysql.connector.connect(
+try:
+    db = mysql.connector.connect(
+        host = "localhost",
+        user = "root",
+        password = "root",
+        database = "ccs-queue-sys"
+    )
+except:
+    db = mysql.connector.connect(
         host = "localhost",
         user = "root",
         password = "Pass_1234",
@@ -431,42 +439,43 @@ class CSQueue_Faculty(QMainWindow):
         # CALL moveWindow FUNCTION
         self.ui.top_bar.mouseMoveEvent = moveWindow
 
+
         self.show()
 
     # FUNCTION CONNECTED TO moveWindow
     def mousePressEvent(self, event):
         self.clickPosition = event.globalPos()
 
-        # ANIMATION FOR TOGGLE MENU
-        def slide_leftmenu(self):
-            width = self.ui.frame_left_menu.width()
+    # ANIMATION FOR TOGGLE MENU
+    def slide_leftmenu(self):
+        width = self.ui.frame_left_menu.width()
 
-            if width == 70:
-                newwidth = 225
-            else:
-                newwidth = 70
+        if width == 70:
+            newwidth = 225
+        else:
+            newwidth = 70
 
-            self.animation = QPropertyAnimation(self.ui.frame_left_menu, b"minimumWidth")
-            self.animation.setDuration(250)
-            self.animation.setStartValue(width)
-            self.animation.setEndValue(newwidth)
-            self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
-            self.animation.start()
+        self.animation = QPropertyAnimation(self.ui.frame_left_menu, b"minimumWidth")
+        self.animation.setDuration(250)
+        self.animation.setStartValue(width)
+        self.animation.setEndValue(newwidth)
+        self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+        self.animation.start()
 
-        # FUNCTION FOR RESTORING/MAXIMIZING WINDOW
-        def restore_or_maximize_window(self):
-            global window_size
-            window_status = window_size
+    # FUNCTION FOR RESTORING/MAXIMIZING WINDOW
+    def restore_or_maximize_window(self):
+        global window_size
+        window_status = window_size
 
-            if window_status == 0:  # IF WINDOW IS MAXIMIZED
-                window_size = 1
-                self.showMaximized()
-                self.ui.maximize_btn.setIcon(QtGui.QIcon(u":/icons/icons/cil-window-restore.png"))
-                self.ui.maximize_btn.setToolTip("Restore")
-            else:  # IF WINDOW IS RESTORED
-                window_size = 0
-                self.showNormal()
-                self.ui.maximize_btn.setIcon(QtGui.QIcon(u":icons/icons/cil-window-maximize.png"))
+        if window_status == 0:  # IF WINDOW IS MAXIMIZED
+            window_size = 1
+            self.showMaximized()
+            self.ui.maximize_btn.setIcon(QtGui.QIcon(u":/icons/icons/cil-window-restore.png"))
+            self.ui.maximize_btn.setToolTip("Restore")
+        else:  # IF WINDOW IS RESTORED
+            window_size = 0
+            self.showNormal()
+            self.ui.maximize_btn.setIcon(QtGui.QIcon(u":icons/icons/cil-window-maximize.png"))
 
 
 # APPLICATION EXECUTION
