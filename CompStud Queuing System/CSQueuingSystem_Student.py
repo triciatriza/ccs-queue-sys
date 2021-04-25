@@ -346,11 +346,11 @@ class Ui_ccsqueue_student(object):
 "")
         self.account_button.setObjectName("account_button")
         self.verticalLayout_2.addWidget(self.account_button)
-        self.settings_button = QtWidgets.QPushButton(self.frame_for_buttons)
-        self.settings_button.setMinimumSize(QtCore.QSize(200, 0))
-        self.settings_button.setMaximumSize(QtCore.QSize(250, 16777215))
-        self.settings_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.settings_button.setStyleSheet("QPushButton{\n"
+        self.logout_btn = QtWidgets.QPushButton(self.frame_for_buttons)
+        self.logout_btn.setMinimumSize(QtCore.QSize(200, 0))
+        self.logout_btn.setMaximumSize(QtCore.QSize(250, 16777215))
+        self.logout_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.logout_btn.setStyleSheet("QPushButton{\n"
 "    background-image: url(:/icons/icons/cil-settings.png);\n"
 "    background-repeat: none;\n"
 "    padding-left:35px;\n"
@@ -364,8 +364,8 @@ class Ui_ccsqueue_student(object):
 "    background-color: rgb(85, 170, 255);\n"
 "}\n"
 "")
-        self.settings_button.setObjectName("settings_button")
-        self.verticalLayout_2.addWidget(self.settings_button)
+        self.logout_btn.setObjectName("logout_btn")
+        self.verticalLayout_2.addWidget(self.logout_btn)
         self.verticalLayout_3.addWidget(self.frame_for_buttons)
         self.horizontalLayout_2.addWidget(self.frame_left_menu)
         self.stackedWidget = QtWidgets.QStackedWidget(self.content)
@@ -970,9 +970,6 @@ class Ui_ccsqueue_student(object):
         self.frame_61.setObjectName("frame_61")
         self.horizontalLayout_19 = QtWidgets.QHBoxLayout(self.frame_61)
         self.horizontalLayout_19.setObjectName("horizontalLayout_19")
-        self.tp_chkApt_btn = QtWidgets.QPushButton(self.frame_61)
-        self.tp_chkApt_btn.setObjectName("tp_chkApt_btn")
-        self.horizontalLayout_19.addWidget(self.tp_chkApt_btn)
         self.tp_setApt_btn = QtWidgets.QPushButton(self.frame_61)
         self.tp_setApt_btn.setObjectName("tp_setApt_btn")
         self.horizontalLayout_19.addWidget(self.tp_setApt_btn)
@@ -1371,17 +1368,6 @@ class Ui_ccsqueue_student(object):
         self.verticalLayout_13.addWidget(self.frame_80)
         self.horizontalLayout_31.addWidget(self.frame_76)
         self.stackedWidget.addWidget(self.account_page)
-        self.settings_page = QtWidgets.QWidget()
-        self.settings_page.setObjectName("settings_page")
-        self.horizontalLayout_34 = QtWidgets.QHBoxLayout(self.settings_page)
-        self.horizontalLayout_34.setObjectName("horizontalLayout_34")
-        self.label_12 = QtWidgets.QLabel(self.settings_page)
-        self.label_12.setStyleSheet("color: rgb(0, 58, 108);\n"
-"font: 43pt \"Segoe UI\";")
-        self.label_12.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
-        self.label_12.setObjectName("label_12")
-        self.horizontalLayout_34.addWidget(self.label_12)
-        self.stackedWidget.addWidget(self.settings_page)
         self.horizontalLayout_2.addWidget(self.stackedWidget)
         self.verticalLayout.addWidget(self.content)
         ccsqueue_student.setCentralWidget(self.centralwidget)
@@ -1402,7 +1388,7 @@ class Ui_ccsqueue_student(object):
         self.appointment_button.setText(_translate("ccsqueue_student", "APPOINTMENT SETTER"))
         self.scholarquests_button.setText(_translate("ccsqueue_student", "SCHOLAR QUESTS"))
         self.account_button.setText(_translate("ccsqueue_student", "ACCOUNT"))
-        self.settings_button.setText(_translate("ccsqueue_student", "SETTINGS"))
+        self.logout_btn.setText(_translate("ccsqueue_student", "LOG OUT"))
         self.label_3.setText(_translate("ccsqueue_student", "Queue"))
         self.currentnum_display.setText(_translate("ccsqueue_student", "0"))
         self.label_4.setText(_translate("ccsqueue_student", "NOW SERVING"))
@@ -1430,7 +1416,6 @@ class Ui_ccsqueue_student(object):
         self.label_17.setText(_translate("ccsqueue_student", "Date and Time"))
         self.label_18.setText(_translate("ccsqueue_student", "Room"))
         self.label_19.setText(_translate("ccsqueue_student", "Reason"))
-        self.dtRsv.setDisplayFormat(_translate("ccsqueue_student", "yyyy/mm/dd hh:mm:ss"))
         self.roomRsv.setCurrentText(_translate("ccsqueue_student", "FH 101"))
         self.roomRsv.setItemText(0, _translate("ccsqueue_student", "FH 101"))
         self.confirmRsv.setText(_translate("ccsqueue_student", "Confirm your choices"))
@@ -1445,7 +1430,6 @@ class Ui_ccsqueue_student(object):
         item = self.listApt.item(2)
         item.setText(_translate("ccsqueue_student", "d"))
         self.listApt.setSortingEnabled(__sortingEnabled)
-        self.tp_chkApt_btn.setText(_translate("ccsqueue_student", "Check Pending"))
         self.tp_setApt_btn.setText(_translate("ccsqueue_student", "Set"))
         self.label_25.setText(_translate("ccsqueue_student", "Date and Time"))
         self.label_26.setText(_translate("ccsqueue_student", "Instructor"))
@@ -1489,7 +1473,6 @@ class Ui_ccsqueue_student(object):
         self.label_22.setText(_translate("ccsqueue_student", "Course here"))
         self.label_23.setText(_translate("ccsqueue_student", "ID Number here"))
         self.label_24.setText(_translate("ccsqueue_student", "School Email here"))
-        self.label_12.setText(_translate("ccsqueue_student", "Settings"))
 import resource_rc
 
 

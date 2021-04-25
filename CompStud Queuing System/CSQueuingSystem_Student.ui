@@ -779,7 +779,7 @@ QPushButton:focus{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="settings_button">
+              <widget class="QPushButton" name="logout_btn">
                <property name="minimumSize">
                 <size>
                  <width>200</width>
@@ -812,7 +812,7 @@ QPushButton:focus{
 </string>
                </property>
                <property name="text">
-                <string>SETTINGS</string>
+                <string>LOG OUT</string>
                </property>
               </widget>
              </item>
@@ -1957,11 +1957,7 @@ QPushButton:pressed{
                      <number>16</number>
                     </property>
                     <item>
-                     <widget class="QDateTimeEdit" name="dtRsv">
-                      <property name="displayFormat">
-                       <string>yyyy/mm/dd hh:mm:ss</string>
-                      </property>
-                     </widget>
+                     <widget class="QDateTimeEdit" name="dtRsv"/>
                     </item>
                     <item>
                      <widget class="QComboBox" name="roomRsv">
@@ -2135,13 +2131,6 @@ QPushButton:pressed{
                  <enum>QFrame::Raised</enum>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_19">
-                 <item>
-                  <widget class="QPushButton" name="tp_chkApt_btn">
-                   <property name="text">
-                    <string>Check Pending</string>
-                   </property>
-                  </widget>
-                 </item>
                  <item>
                   <widget class="QPushButton" name="tp_setApt_btn">
                    <property name="text">
@@ -3017,24 +3006,6 @@ color: rgb(0, 58, 108);</string>
                </widget>
               </item>
              </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="settings_page">
-          <layout class="QHBoxLayout" name="horizontalLayout_34">
-           <item>
-            <widget class="QLabel" name="label_12">
-             <property name="styleSheet">
-              <string notr="true">color: rgb(0, 58, 108);
-font: 43pt &quot;Segoe UI&quot;;</string>
-             </property>
-             <property name="text">
-              <string>Settings</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignHCenter|Qt::AlignTop</set>
-             </property>
             </widget>
            </item>
           </layout>

@@ -31,7 +31,7 @@ quests = [{"Title": "", "Date and Time": "", "Duration": "", "Points": "", "Desc
 db = mysql.connector.connect(
         host = "localhost",
         user = "root",
-        password = "root",
+        password = "Pass_1234",
         database = "ccs-queue-sys"
     )
 
@@ -160,7 +160,7 @@ class CSQueue_Student(QMainWindow):
         self.ui.appointment_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.appointment_page))
         self.ui.scholarquests_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.scholarquests_page))
         self.ui.account_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.account_page))
-        self.ui.settings_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.settings_page))
+        self.ui.logout_btn.clicked.connect(lambda: self.logOut())
 
 ########################################## CONTENT BUTTONS #########################################################
 
@@ -181,7 +181,6 @@ class CSQueue_Student(QMainWindow):
         self.ui.cancelRsv_btn.clicked.connect(lambda: self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table))
 
         # Appointment Page Buttons
-        self.ui.tp_chkApt_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.checkappointment_page))
         self.ui.tp_setApt_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.appointment_page))
 
         # Quests Page Buttons
@@ -319,6 +318,10 @@ class CSQueue_Student(QMainWindow):
     def mousePressEvent(self, event):
         self.clickPosition = event.globalPos()
 
+    def logOut(self):
+        self.reject()
+
+
 
 # APPLICATION EXECUTION
 if __name__ == "__main__":
@@ -326,7 +329,11 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     login = Login()
 
+
     if login.exec_() == QtWidgets.QDialog.Accepted:
         window = CSQueue_Student()
         window.show()
+        print("text")
         sys.exit(app.exec_())
+
+
