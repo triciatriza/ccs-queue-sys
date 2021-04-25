@@ -277,6 +277,15 @@ class CSQueue_Student(QMainWindow):
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
 
+    def displayAccount(self):
+        login = Login()
+        email = login.email_fieldtext()
+        cmd = "SELECT date_time, room_id, state, reason FROM reservation where student_id = %s"
+        query = (id,)
+        cursor.execute(cmd, user)
+        result = cursor.fetchall()
+
+
 
 
 ######################################## MAIN MENU UI FUNCTIONALITIES ##################################################
