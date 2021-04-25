@@ -202,7 +202,7 @@ class CSQueue_Student(QMainWindow):
         self.ui.setApt_btn.clicked.connect(lambda: self.setAppointments())
 
         # Quests Page Buttons
-        self.ui.tp_acceptQuest_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.acceptquests_page))
+        self.ui.tp_acceptQuest_btn.clicked.connect(lambda: self.loadQuests(self.ui.acceptquests_page, self.ui.availableQuest_table))
 
         # Accept Quests Page Buttons
         self.ui.acceptQuest_btn.clicked.connect(lambda: print("Accepted quest!"))
@@ -341,6 +341,33 @@ class CSQueue_Student(QMainWindow):
             self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table)
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
+    
+    def loadQuests(self, page, table):
+        global id
+        self.ui.stackedWidget.setCurrentWidget(page)
+        user = str(id)
+
+        try:
+            # cmd = "SELECT date_time, room_id, state, reason from reservation where student_id =%s"
+            # query = (id,)
+            # cursor.execute(cmd, (id))
+            cursor.execute("SELECT title, time, points, description, faculty_id FROM quest")
+            result = cursor.fetchall()
+        except Exception as error:
+            print(error)
+            print("Can't load data from faculty!")
+            cmd = "SELECT title, time, points, description FROM quest"
+            cursor.execute(cmd)
+            result = cursor.fetchall()
+        finally:
+            table.setRowCount(0)
+            for row_number, row_data in enumerate(result):
+                table.insertRow(row_number)
+                for column_number, data in enumerate(row_data):
+                    table.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str((data))))
+
+                if row_number == 4:
+                    break
 
 ################################ CSQUEUEINGSYSTEM STUDENT BASE UI FUNCTIONALITIES ##################################################
 
@@ -419,8 +446,8 @@ class CSQueue_Faculty(QMainWindow):
         # QUEUE_PAGE BUTTON FUNCTIONALITY
 
         # Check Reservation Page Buttons
-        # self.ui.tp_setRsv_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.setreservation_page))
-
+        self.ui.acceptRsv_btn.clicked.connect(lambda: self.acceptReservation(self.ui.pendingRsv_table))
+        self.ui.declineRsv_btn.clicked.connect(lambda: self.declineReservation(self.ui.pendingRsv_table))
 
         # Appointment Page Buttons
 
@@ -452,38 +479,36 @@ class CSQueue_Faculty(QMainWindow):
             # cmd = "SELECT date_time, room_id, state, reason from reservation where student_id =%s"
             # query = (id,)
             # cursor.execute(cmd, (id))
-            cursor.execute("SELECT date_time, room_id, state, reason, student_id FROM reservation where student_id = %s", (user,))
+            cursor.execute("SELECT date_time, student_id, room_id, reason FROM reservation")
             result = cursor.fetchall()
-        except Exception as error:
-            print(error)
-            print("Can't load data from student!")
-            cmd = "SELECT date_time, room_id, state, reason FROM reservation"
-            cursor.execute(cmd)
-            result = cursor.fetchall()
-        finally:
+
             table.setRowCount(0)
             for row_number, row_data in enumerate(result):
                 table.insertRow(row_number)
                 for column_number, data in enumerate(row_data):
                     table.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str((data))))
-                
-                if row_number == 4:
-                    break
 
-    def setReservations(self, table, data):
-        global id
-        dateTime = self.ui.dtRsv.text()
-        index = self.ui.roomRsv.currentIndex()
-        room = self.ui.roomRsv.itemText(index)
-        reason = self.ui.reasonRsv.text()
+        except Exception as error:
+            print(error)
+            print("Can't load data from student!")
+            
+    def acceptReservation(self, table):
+        selectedRow = 0
+        rows = sorted(set(index.row() for index in
+                      table.selectedIndexes()))
+        for row in rows:
+            print('Row %d is selected' % row)
+            selectedRow = row
 
-        if self.ui.confirmRsv.isChecked():
-            cursor.execute("INSERT INTO reservation (room_id, student_id, date_time, reason) VALUES (%s, %s, %s, %s)", (room, id, dateTime, reason))
-            db.commit()
-            QtWidgets.QMessageBox.information(self, 'Success', 'Registered successfully.')
-            self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table)
-        else:
-            QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
+        
+
+    def declineReservation(self, table):
+        selectedRow = 0
+        rows = sorted(set(index.row() for index in
+                      table.selectedIndexes()))
+        for row in rows:
+            print('Row %d is selected' % row)
+            selectedRow = row
 
     def loadAppointments(self, page, table):
         global id
@@ -494,7 +519,7 @@ class CSQueue_Faculty(QMainWindow):
             # cmd = "SELECT date_time, room_id, state, reason from reservation where student_id =%s"
             # query = (id,)
             # cursor.execute(cmd, (id))
-            cursor.execute("SELECT date_time, faculty_id, reason, student_id FROM appointment where student_id = %s", (user,))
+            cursor.execute("SELECT date_time, student_id, reason, faculty_id  FROM appointment where faculty_id = %s", (user,))
             result = cursor.fetchall()
         except Exception as error:
             print(error)
@@ -555,10 +580,10 @@ class CSQueue_Faculty(QMainWindow):
         title = self.ui.titleQst.text()
         description = self.ui.descQst.text()
         time = self.ui.timeQst.text()
-        reason = self.ui.reasonQst.text()
+        points = self.ui.reasonQst.text()
 
         if self.ui.confirmQst_btn.isChecked():
-            cursor.execute("INSERT INTO quest (title, time, points, description) VALUES (%s, %s, %s, %s)", (title, time, points, description))
+            cursor.execute("INSERT INTO quest (title, time, points, description, faculty_id) VALUES (%s, %s, %s, %s, %s)", (title, time, points, description, id,))
             db.commit()
             QtWidgets.QMessageBox.information(self, 'Success', 'Quest set successfully.')
             self.loadQuests(self.ui.scholarquests_page, self.ui.quest_table)

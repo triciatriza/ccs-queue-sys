@@ -825,7 +825,7 @@ QPushButton:focus{
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="checkqueue_page">
           <layout class="QGridLayout" name="gridLayout_13">
@@ -1200,7 +1200,7 @@ QPushButton:focus{
                 </column>
                 <column>
                  <property name="text">
-                  <string>Instructor</string>
+                  <string>Student</string>
                  </property>
                 </column>
                 <column>
@@ -1519,11 +1519,6 @@ QPushButton:focus{
              <column>
               <property name="text">
                <string>Title</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Date and Time</string>
               </property>
              </column>
              <column>

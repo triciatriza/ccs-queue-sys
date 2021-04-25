@@ -2562,11 +2562,6 @@ QPushButton:pressed{
              </column>
              <column>
               <property name="text">
-               <string>Date and Time</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
                <string>Duration</string>
               </property>
              </column>

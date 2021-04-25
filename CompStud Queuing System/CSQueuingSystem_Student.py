@@ -280,13 +280,13 @@ class Ui_ccsqueue_student(object):
         self.roomreservation_button.setObjectName("roomreservation_button")
         self.verticalLayout_2.addWidget(self.roomreservation_button)
         self.appointment_button = QtWidgets.QPushButton(self.frame_for_buttons)
-        self.appointment_button.setMinimumSize(QtCore.QSize(200, 0))
+        self.appointment_button.setMinimumSize(QtCore.QSize(205, 0))
         self.appointment_button.setMaximumSize(QtCore.QSize(250, 16777215))
         self.appointment_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.appointment_button.setStyleSheet("QPushButton{\n"
 "    background-image: url(:/icons/icons/cil-pencil.png);\n"
 "    background-repeat:none;\n"
-"    padding-left:52px;\n"
+"    padding-left: 52px;\n"
 "    background-position: center left;\n"
 "    font: 75 9pt \"Century Gothic\";\n"
 "}\n"
@@ -1174,7 +1174,7 @@ class Ui_ccsqueue_student(object):
         self.availableQuest_table.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         self.availableQuest_table.setGridStyle(QtCore.Qt.SolidLine)
         self.availableQuest_table.setObjectName("availableQuest_table")
-        self.availableQuest_table.setColumnCount(5)
+        self.availableQuest_table.setColumnCount(4)
         self.availableQuest_table.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.availableQuest_table.setHorizontalHeaderItem(0, item)
@@ -1184,8 +1184,6 @@ class Ui_ccsqueue_student(object):
         self.availableQuest_table.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
         self.availableQuest_table.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.availableQuest_table.setHorizontalHeaderItem(4, item)
         self.availableQuest_table.horizontalHeader().setSortIndicatorShown(True)
         self.availableQuest_table.horizontalHeader().setStretchLastSection(True)
         self.availableQuest_table.verticalHeader().setStretchLastSection(False)
@@ -1461,12 +1459,10 @@ class Ui_ccsqueue_student(object):
         item = self.availableQuest_table.horizontalHeaderItem(0)
         item.setText(_translate("ccsqueue_student", "Title"))
         item = self.availableQuest_table.horizontalHeaderItem(1)
-        item.setText(_translate("ccsqueue_student", "Date and Time"))
-        item = self.availableQuest_table.horizontalHeaderItem(2)
         item.setText(_translate("ccsqueue_student", "Duration"))
-        item = self.availableQuest_table.horizontalHeaderItem(3)
+        item = self.availableQuest_table.horizontalHeaderItem(2)
         item.setText(_translate("ccsqueue_student", "Points"))
-        item = self.availableQuest_table.horizontalHeaderItem(4)
+        item = self.availableQuest_table.horizontalHeaderItem(3)
         item.setText(_translate("ccsqueue_student", "Description"))
         self.acceptQuest_btn.setText(_translate("ccsqueue_student", "Accept"))
         self.label_13.setText(_translate("ccsqueue_student", " Student Account Details"))
