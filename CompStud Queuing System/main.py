@@ -405,6 +405,151 @@ class CSQueue_Faculty(QMainWindow):
         # fUNCTION FOR TOGGLE MENU BUTTONS
         self.ui.Btn_Toggle.clicked.connect(lambda: self.slide_leftmenu())
 
+        # fUNCTION FOR TOGGLE MENU BUTTONS
+        self.ui.Btn_Toggle.clicked.connect(lambda: self.slide_leftmenu())
+        # self.ui.queue_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.queue_page))
+        self.ui.roomreservation_button.clicked.connect(lambda: self.loadReservations(self.ui.checkreservation_page, self.ui.pendingRsv_table))
+        self.ui.appointment_button.clicked.connect(lambda: self.loadAppointments(self.ui.appointment_page, self.ui.apt_table))
+        self.ui.scholarquests_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.scholarquests_page))
+        self.ui.account_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.account_page))
+        # self.ui.logout_btn.clicked.connect(lambda: self.logOut())
+
+################################### CSQUEUEINGSYSTEM FACULTY CONTENT BUTTONS #################################################################
+
+        # QUEUE_PAGE BUTTON FUNCTIONALITY
+
+        # Check Reservation Page Buttons
+        # self.ui.tp_setRsv_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.setreservation_page))
+
+
+        # Appointment Page Buttons
+
+        # Check Appointment Page Buttons
+
+        # Quests Page Buttons
+
+        # Set Quests Page Buttons
+
+        # FUNCTION FOR MOVABLE WINDOW
+        def moveWindow(e):
+            if self.isMaximized() == False:
+                if e.buttons() == Qt.LeftButton:
+                    self.move(self.pos() + e.globalPos() - self.clickPosition)
+                    self.clickPosition = e.globalPos()
+                    e.accept()
+        # CALL moveWindow FUNCTION
+        self.ui.top_bar.mouseMoveEvent = moveWindow
+
+        self.show()    
+
+    def loadReservations(self, page, table):
+        global id
+        self.ui.stackedWidget.setCurrentWidget(page)
+        user = str(id)     
+
+        try:
+            # cmd = "SELECT date_time, room_id, state, reason from reservation where student_id =%s"
+            # query = (id,)
+            # cursor.execute(cmd, (id))
+            cursor.execute("SELECT date_time, room_id, state, reason, student_id FROM reservation where student_id = %s", (user,))
+            result = cursor.fetchall()
+        except Exception as error:
+            print(error)
+            print("Can't load data from student!")
+            cmd = "SELECT date_time, room_id, state, reason FROM reservation"
+            cursor.execute(cmd)
+            result = cursor.fetchall()
+        finally:
+            table.setRowCount(0)
+            for row_number, row_data in enumerate(result):
+                table.insertRow(row_number)
+                for column_number, data in enumerate(row_data):
+                    table.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str((data))))
+                
+                if row_number == 4:
+                    break
+
+    def setReservations(self, table, data):
+        global id
+        dateTime = self.ui.dtRsv.text()
+        index = self.ui.roomRsv.currentIndex()
+        room = self.ui.roomRsv.itemText(index)
+        reason = self.ui.reasonRsv.text()
+
+        if self.ui.confirmRsv.isChecked():
+            cursor.execute("INSERT INTO reservation (room_id, student_id, date_time, reason) VALUES (%s, %s, %s, %s)", (room, id, dateTime, reason))
+            db.commit()
+            QtWidgets.QMessageBox.information(self, 'Success', 'Registered successfully.')
+            self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table)
+        else:
+            QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
+
+    def loadAppointments(self, page, table):
+        global id
+        self.ui.stackedWidget.setCurrentWidget(page)
+        user = str(id)     
+
+        try:
+            # cmd = "SELECT date_time, room_id, state, reason from reservation where student_id =%s"
+            # query = (id,)
+            # cursor.execute(cmd, (id))
+            cursor.execute("SELECT date_time, faculty_id, reason, student_id FROM appointment where student_id = %s", (user,))
+            result = cursor.fetchall()
+        except Exception as error:
+            print(error)
+            print("Can't load data from student!")
+            cmd = "SELECT date_time, faculty_id, reason, FROM appointment"
+            cursor.execute(cmd)
+            result = cursor.fetchall()
+        finally:
+            table.setRowCount(0)
+            for row_number, row_data in enumerate(result):
+                table.insertRow(row_number)
+                for column_number, data in enumerate(row_data):
+                    table.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str((data))))
+
+                if row_number == 3:
+                    break
+                
+    def setAppointments(self):
+        global id
+        dateTime = self.ui.dtApt.text()
+        index = self.ui.instructorApt.currentIndex()
+        instructor = self.ui.instructorApt.itemText(index)
+        reason = self.ui.reasonApt.text()
+        name = instructor.split()
+        lastName = str(name[-1])
+        firstName = ""
+        for x in name:
+            count = 0
+            if count == 0:
+                firstName = firstName + x
+            else:
+                firstName = firstName + " " + x
+            if count + 1 == len(name) - 1:
+                firstName = str(firstName)
+                break
+            count = count + 1
+        
+        
+
+        if self.ui.confirmApt_btn.isChecked():
+            print(firstName)
+            cursor.execute("SELECT email from user WHERE first_name = %s AND last_name = %s", (firstName, lastName,))
+            tempEmail = cursor.fetchone()
+            email = tempEmail[0]
+            print(email)
+            cursor.execute("SELECT faculty_id from user_faculty WHERE email = %s", (email,))
+            instructor_id = cursor.fetchone()
+            print(instructor_id)
+            cursor.execute("INSERT INTO appointment (faculty_id, student_id, date_time, reason) VALUES (%s, %s, %s, %s)", (instructor_id[0], id, dateTime, reason,))
+            db.commit()
+            QtWidgets.QMessageBox.information(self, 'Success', 'Registered successfully.')
+            self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table)
+        else:
+            QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
+
+
         # FUNCTION FOR MOVABLE WINDOW
         def moveWindow(e):
             if self.isMaximized() == False:
