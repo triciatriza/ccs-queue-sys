@@ -25,13 +25,14 @@ appointments = [{}]
 # GLOBAL VARIABLES FOR SCHOLARQUESTS_PAGE
 quests = [{"Title": "", "Date and Time": "", "Duration": "", "Points": "", "Description": ""}]
 
+# DATABASE CONNECTION
 db = mysql.connector.connect(
         host = "localhost",
         user = "root",
-        password = "root",
+        password = "Pass_1234",
         database = "ccs-queue-sys"
     )
-
+# DATABASE CURSOR
 cursor = db.cursor()
 
 # MESSAGEBOX FUNCTION FOR SHOWING ERROR
@@ -41,6 +42,7 @@ def showError(title, text):
     msg.setText(text)
     msg.setIcon(QMessageBox.Critical)
     msg.exec_()
+
 
 # LOGIN_PAGE CLASS
 class Login(QDialog):
@@ -62,8 +64,6 @@ class Login(QDialog):
             self.accept()
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Incorrect email or password')
-    
-
 
     # SHOW REGISTER_PAGE
     def gotoRegister(self):
@@ -71,6 +71,7 @@ class Login(QDialog):
         regWindow = Register(self)
         login.close()
         regWindow.show()
+
 
 # REGISTER_PAGE CLASS
 class Register(QDialog):
@@ -125,8 +126,6 @@ class Register(QDialog):
                 self.close()
             else:
                 QtWidgets.QMessageBox.warning(self, 'Error', "Password doesn't match")
-            
-            
 
 
 # CSQUEUEINGSYSTEM CLASS (MAIN WINDOW)
@@ -220,19 +219,21 @@ class CSQueue(QMainWindow):
     
     def loadReservations(self, page, table):
         self.ui.stackedWidget.setCurrentWidget(page)
+
         cmd = "SELECT date_time, room_id, state, reason FROM reservation"
         cursor.execute(cmd)
         result = cursor.fetchall()
+        self.ui.rsv_table.setRowCount(0)
         
         # use this to understand the incoming data better
         for x in result:
             print(x)
 
         for row_number, row_data in enumerate(result):
+            self.ui.rsv_table.insertRow(row_number)
             for column_number, data in enumerate(row_data):
-                table.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str((data))))
-        
-        
+                self.ui.rsv_table.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str((data))))
+
 
     def setReservations(self, table, data):
         dateTime = self.ui.dtRsv.text()
