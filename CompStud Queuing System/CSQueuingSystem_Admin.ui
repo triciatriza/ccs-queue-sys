@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ComputerStudiesQueuingSystem</class>
- <widget class="QMainWindow" name="ComputerStudiesQueuingSystem">
+ <class>ccsqueue_admin</class>
+ <widget class="QMainWindow" name="ccsqueue_admin">
   <property name="geometry">
    <rect>
     <x>0</x>

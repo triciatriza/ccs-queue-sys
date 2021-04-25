@@ -5,7 +5,9 @@ from PyQt5.QtCore import Qt, QPoint, QPropertyAnimation
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QDialog, QApplication, QMainWindow, QWidget, QFrame, QMessageBox, QPushButton
 from PyQt5.uic import loadUi
-from CSQueuingSystem import *
+from CSQueuingSystem_Student import *
+from CSQueuingSystem_Faculty import *
+from CSQueuingSystem_Admin import *
 import mysql.connector
 
 # GLOBAL VARIABLES FOR FRAMELESS WINDOW
