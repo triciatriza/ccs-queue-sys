@@ -176,6 +176,7 @@ class CSQueue_Student(QMainWindow):
         self.ui.tp_setRsv_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.setreservation_page))
 
         # Set Reservation Page Buttons
+        
         self.ui.setRsv_btn.clicked.connect(lambda: self.setReservations(self.ui.rsv_table, reservations))
         self.ui.cancelRsv_btn.clicked.connect(lambda: self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table))
 
@@ -240,14 +241,16 @@ class CSQueue_Student(QMainWindow):
     def loadReservations(self, page, table):
         global id
         self.ui.stackedWidget.setCurrentWidget(page)
-        print(id)
+        user = str(id)     
 
         try:
-            cmd = "SELECT date_time, room_id, state, reason FROM reservation where student_id = %s"
-            query = (id, )
-            cursor.execute(cmd, user)
+            # cmd = "SELECT date_time, room_id, state, reason from reservation where student_id =%s"
+            # query = (id,)
+            # cursor.execute(cmd, (id))
+            cursor.execute("SELECT date_time, room_id, state, reason, student_id FROM reservation where student_id = %s", (user,))
             result = cursor.fetchall()
-        except:
+        except Exception as error:
+            print(error)
             print("Can't load data from student!")
             cmd = "SELECT date_time, room_id, state, reason FROM reservation"
             cursor.execute(cmd)
@@ -276,15 +279,6 @@ class CSQueue_Student(QMainWindow):
             self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table)
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
-
-    def displayAccount(self):
-        login = Login()
-        email = login.email_fieldtext()
-        cmd = "SELECT date_time, room_id, state, reason FROM reservation where student_id = %s"
-        query = (id,)
-        cursor.execute(cmd, user)
-        result = cursor.fetchall()
-
 
 
 

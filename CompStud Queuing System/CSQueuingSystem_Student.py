@@ -1430,6 +1430,7 @@ class Ui_ccsqueue_student(object):
         self.label_17.setText(_translate("ccsqueue_student", "Date and Time"))
         self.label_18.setText(_translate("ccsqueue_student", "Room"))
         self.label_19.setText(_translate("ccsqueue_student", "Reason"))
+        self.dtRsv.setDisplayFormat(_translate("ccsqueue_student", "yyyy/mm/dd hh:mm:ss"))
         self.roomRsv.setCurrentText(_translate("ccsqueue_student", "FH 101"))
         self.roomRsv.setItemText(0, _translate("ccsqueue_student", "FH 101"))
         self.confirmRsv.setText(_translate("ccsqueue_student", "Confirm your choices"))

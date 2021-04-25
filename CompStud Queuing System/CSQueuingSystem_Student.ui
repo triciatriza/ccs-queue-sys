@@ -1957,7 +1957,11 @@ QPushButton:pressed{
                      <number>16</number>
                     </property>
                     <item>
-                     <widget class="QDateTimeEdit" name="dtRsv"/>
+                     <widget class="QDateTimeEdit" name="dtRsv">
+                      <property name="displayFormat">
+                       <string>yyyy/mm/dd hh:mm:ss</string>
+                      </property>
+                     </widget>
                     </item>
                     <item>
                      <widget class="QComboBox" name="roomRsv">
