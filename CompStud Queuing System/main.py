@@ -407,10 +407,10 @@ class CSQueue_Faculty(QMainWindow):
 
         # fUNCTION FOR TOGGLE MENU BUTTONS
         self.ui.Btn_Toggle.clicked.connect(lambda: self.slide_leftmenu())
-        # self.ui.queue_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.queue_page))
+        self.ui.queue_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.checkqueue_page))
         self.ui.roomreservation_button.clicked.connect(lambda: self.loadReservations(self.ui.checkreservation_page, self.ui.pendingRsv_table))
         self.ui.appointment_button.clicked.connect(lambda: self.loadAppointments(self.ui.appointment_page, self.ui.apt_table))
-        self.ui.scholarquests_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.scholarquests_page))
+        self.ui.scholarquests_button.clicked.connect(lambda: self.loadQuests(self.ui.scholarquests_page, self.ui.quest_table))
         self.ui.account_button.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.account_page))
         # self.ui.logout_btn.clicked.connect(lambda: self.logOut())
 
@@ -427,9 +427,10 @@ class CSQueue_Faculty(QMainWindow):
         # Check Appointment Page Buttons
 
         # Quests Page Buttons
-
+        self.ui.tp_setQuest_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.setquests_page))
         # Set Quests Page Buttons
-
+        self.ui.setQst_btn.clicked.connect(lambda: self.setQuests(self.ui.quest_table, quests))
+        self.ui.cancelQst_btn.clicked.connect(lambda: self.loadQuests(self.ui.scholarquests_page, self.ui.quest_table))
         # FUNCTION FOR MOVABLE WINDOW
         def moveWindow(e):
             if self.isMaximized() == False:
@@ -530,8 +531,7 @@ class CSQueue_Faculty(QMainWindow):
                 firstName = str(firstName)
                 break
             count = count + 1
-        
-        
+
 
         if self.ui.confirmApt_btn.isChecked():
             print(firstName)
@@ -548,6 +548,51 @@ class CSQueue_Faculty(QMainWindow):
             self.loadReservations(self.ui.roomreservation_page, self.ui.rsv_table)
         else:
             QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm appointment!')
+
+
+    def setQuests(self, table, data):
+        global id
+        title = self.ui.titleQst.text()
+        description = self.ui.descQst.text()
+        time = self.ui.timeQst.text()
+        reason = self.ui.reasonQst.text()
+
+        if self.ui.confirmQst_btn.isChecked():
+            cursor.execute("INSERT INTO quest (title, time, points, description) VALUES (%s, %s, %s, %s)", (title, time, points, description))
+            db.commit()
+            QtWidgets.QMessageBox.information(self, 'Success', 'Quest set successfully.')
+            self.loadQuests(self.ui.scholarquests_page, self.ui.quest_table)
+        else:
+            QtWidgets.QMessageBox.warning(self, 'Error', 'Confirm quest!!')
+
+
+    def loadQuests(self, page, table):
+        global id
+        self.ui.stackedWidget.setCurrentWidget(page)
+        user = str(id)
+
+        try:
+            # cmd = "SELECT date_time, room_id, state, reason from reservation where student_id =%s"
+            # query = (id,)
+            # cursor.execute(cmd, (id))
+            cursor.execute("SELECT title, time, points, description, faculty_id FROM quest where faculty_id = %s", (user,))
+            result = cursor.fetchall()
+        except Exception as error:
+            print(error)
+            print("Can't load data from faculty!")
+            cmd = "SELECT title, time, points, description FROM quest"
+            cursor.execute(cmd)
+            result = cursor.fetchall()
+        finally:
+            table.setRowCount(0)
+            for row_number, row_data in enumerate(result):
+                table.insertRow(row_number)
+                for column_number, data in enumerate(row_data):
+                    table.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str((data))))
+
+                if row_number == 4:
+                    break
+
 
 
         # FUNCTION FOR MOVABLE WINDOW
